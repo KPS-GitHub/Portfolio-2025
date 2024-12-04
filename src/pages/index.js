@@ -5,9 +5,11 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 import ArticlePreview from '../components/article-preview'
+import PortfolioEntryPreview from '../components/portfolio-entry-preview'
 
 class RootIndex extends React.Component {
   render() {
+    const portEntries = get(this, 'props.data.allContentfulPortfolioEntry.nodes')
     const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     const [author] = get(this, 'props.data.allContentfulPerson.nodes')
 
@@ -18,6 +20,7 @@ class RootIndex extends React.Component {
           title={author.name}
           content={author.shortBio}
         />
+        <PortfolioEntryPreview entries={portEntries} />
         <ArticlePreview posts={posts} />
       </Layout>
     )
@@ -34,6 +37,27 @@ export const pageQuery = graphql`
         slug
         publishDate(formatString: "MMMM Do, YYYY")
         tags
+        heroImage {
+          gatsbyImage(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            width: 424
+            height: 212
+          )
+        }
+        description {
+          raw
+        }
+      }
+    }
+    allContentfulPortfolioEntry(sort: { publishDate: DESC }) {
+      nodes {
+        title
+        slug
+        publishDate(formatString: "MMMM Do, YYYY")
+        endTag
+        typeTags
+        techTags
         heroImage {
           gatsbyImage(
             layout: FULL_WIDTH
