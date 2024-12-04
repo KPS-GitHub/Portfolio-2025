@@ -3,12 +3,19 @@ const path = require('path')
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  // Define a template for blog post
+  // Define templates
+  const portfolioEntry = path.resolve('./src/templates/portfolio-entry.js')
   const blogPost = path.resolve('./src/templates/blog-post.js')
 
   const result = await graphql(
     `
       {
+        allContentfulPortfolioEntry {
+          nodes {
+            title
+            slug
+          }
+        }
         allContentfulBlogPost {
           nodes {
             title
@@ -27,8 +34,33 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     return
   }
 
+  const portfolioEntries = result.data.allContentfulPortfolioEntry.nodes
   const posts = result.data.allContentfulBlogPost.nodes
 
+  
+  // Create portfolio entry pages
+  // But only if there's at least one portfolio entry found in Contentful
+  // `context` is available in the template as a prop and as a variable in GraphQL
+
+  if (portfolioEntries.length > 0) {
+    portfolioEntries.forEach((entry, index) => {
+      const previousPostSlug = index === 0 ? null : portfolioEntries[index - 1].slug
+      const nextPostSlug =
+        index === portfolioEntries.length - 1 ? null : portfolioEntries[index + 1].slug
+
+      createPage({
+        path: `/portfolio/${entry.slug}/`,
+        component: portfolioEntry,
+        context: {
+          slug: entry.slug,
+          previousPostSlug,
+          nextPostSlug,
+        },
+      })
+    })
+  }
+  
+  
   // Create blog posts pages
   // But only if there's at least one blog post found in Contentful
   // `context` is available in the template as a prop and as a variable in GraphQL
