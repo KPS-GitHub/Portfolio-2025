@@ -1,3 +1,17 @@
+.wrap {
+  display: flex;
+  width: 100%;
+}
+
+.preview-wrap {
+  width: 50%;
+}
+
+.slider-wrap {
+  width: 50%;
+}
+
+
 .article-list {
   margin: 0;
   padding: 0;

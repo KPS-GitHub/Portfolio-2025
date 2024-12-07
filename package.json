@@ -8,6 +8,7 @@
     "url": "https://github.com/contentful/starter-gatsby-blog/issues"
   },
   "dependencies": {
+    "@ant-design/react-slick": "^1.1.2",
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
     "dotenv": "^16.4.7",
     "gatsby": "^5.5.0",
@@ -21,7 +22,8 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0",
-    "reading-time": "^2.0.0-1"
+    "reading-time": "^2.0.0-1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "contentful-import": "^8.3.2",

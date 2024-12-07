@@ -5,7 +5,7 @@ import get from 'lodash/get'
 import Layout from '../components/layout'
 import Hero from '../components/hero'
 // import ArticlePreview from '../components/article-preview'
-import PortfolioShowcaseSlider from '../components/portfolio-showcase-slider'
+import PortfolioShowcase from '../components/PortfolioShowcase/portfolio-showcase'
 
 class RootIndex extends React.Component {
   render() {
@@ -20,7 +20,7 @@ class RootIndex extends React.Component {
           title={author.name}
           content={author.shortBio}
         />
-        <PortfolioShowcaseSlider entries={portEntries} />
+        <PortfolioShowcase entries={portEntries} />
         {/* <ArticlePreview posts={posts} /> */}
       </Layout>
     )
