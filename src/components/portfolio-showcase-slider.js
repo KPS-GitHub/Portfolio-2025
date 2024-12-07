@@ -5,9 +5,9 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import Container from './container'
 import Tags from './tags'
-import * as styles from './article-preview.module.css'
+import * as styles from './portfolio-showcase-slider.module.css'
 
-const PortfolioEntryPreview = ({ entries }) => {
+const PortfolioShowcaseSlider = ({ entries }) => {
   if (!entries) return null
   if (!Array.isArray(entries)) return null
 
@@ -36,4 +36,4 @@ const PortfolioEntryPreview = ({ entries }) => {
   )
 }
 
-export default PortfolioEntryPreview
+export default PortfolioShowcaseSlider
