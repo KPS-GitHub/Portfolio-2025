@@ -67,7 +67,7 @@ a.active {
 tt,
 code,
 kbd {
-  background: var(--black-fade-5);
+  background: var(--black-fade-05);
   padding-bottom: 0.2em;
   padding-top: 0.2em;
 }
@@ -81,7 +81,7 @@ kbd {
 
 tt,
 code {
-  background-color: var(--black-fade-5);
+  background-color: var(--black-fade-05);
   border-radius: var(--radius-sm);
   font-weight: var(--medium);
   padding: 0.2em 0;

@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from '../components/layout'
-import Hero from '../components/hero'
+// import Hero from '../components/hero'
 // import ArticlePreview from '../components/article-preview'
 import PortfolioShowcase from '../components/PortfolioShowcase/portfolio-showcase'
 
@@ -12,15 +12,15 @@ class RootIndex extends React.Component {
   render() {
     const portEntries = get(this, 'props.data.allContentfulPortfolioEntry.nodes')
     // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+    // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
 
     return (
       <Layout location={this.props.location}>
-        <Hero
+        {/* <Hero
           image={author.heroImage.gatsbyImage}
           title={author.name}
           content={author.shortBio}
-        />
+        /> */}
         <PortfolioShowcase entries={portEntries} />
         {/* <ArticlePreview posts={posts} /> */}
       </Layout>

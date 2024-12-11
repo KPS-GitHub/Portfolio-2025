@@ -10,6 +10,7 @@ import Slider from '@ant-design/react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { GatsbyImage } from 'gatsby-plugin-image'
+import * as styles from './portfolio-showcase.module.css'
 
 const PortfolioShowcaseSlider = ({ entries }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -18,11 +19,12 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   if (!Array.isArray(entries)) return null
 
   const settings = {
-    dots: true,
+    dots: false,
     className: "center",
     centerMode: true,
-    infinite: false,
-    centerPadding: "60px",
+    slidesToShow: 3,
+    infinite: true,
+    centerPadding: "0px",
     speed: 500,
     focusOnSelect: true,
     vertical: true,
@@ -30,17 +32,18 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   }
 
   return (
-    <div>
       <div className="container">
         <div className="row">
-          <div className="col-md-6">
-            <GatsbyImage image={entries[currentSlide].featuredImage.gatsbyImage} alt={entries[currentSlide].featuredImage.alt} />
+          <div className="col-md-7">
+            <a className={styles.previewImageLink} href={`/portfolio/${entries[currentSlide].slug}`} >
+              <GatsbyImage fadeIn={true} image={entries[currentSlide].featuredImage.gatsbyImage} alt={entries[currentSlide].featuredImage.alt} />
+            </a>
           </div>
-          <div className="col-md-6">
+          <div className="col-md-5">
             <Slider {...settings}>
-              {entries.map((entry) => {
+              {entries.map((entry, index) => {
                 return (
-                  <div key={entry.title}>
+                  <div key={entry.title} className={`${styles.slideOuterWrap} ${currentSlide === index ? styles.currentSlide : ''}`}>
                     <PortfolioShowcaseSlide entry={entry} />
                   </div>
                 )
@@ -49,7 +52,6 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
         </div>
       </div>
-    </div>
   )
 }
 

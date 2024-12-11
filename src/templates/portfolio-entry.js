@@ -16,7 +16,6 @@ import * as styles from './portfolio-entry.module.css'
 class PortfolioEntryTemplate extends React.Component {
   render() {
     const entry = get(this.props, 'data.contentfulPortfolioEntry')
-    console.log("entry: ", entry)
     const previous = get(this.props, 'data.previous')
     const next = get(this.props, 'data.next')
     const plainTextDescription = documentToPlainTextString(

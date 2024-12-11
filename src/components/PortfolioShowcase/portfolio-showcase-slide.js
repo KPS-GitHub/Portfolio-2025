@@ -1,12 +1,12 @@
 import React from 'react'
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
-// import * as styles from './portfolio-showcase-slider.module.css'
+import * as styles from './portfolio-showcase.module.css'
 
 const PortfolioShowcaseSlide = ({ entry }) => {
-    return(
-        <div>
+
+    return (
+        <div className={styles.slideWrap}>
             <h2>{entry.title}</h2>
-            <p>{entry.description?.raw && renderRichText(entry.description)}</p>
+            <a href={`/portfolio/${entry.slug}`} className={styles.link}>View Details</a>
         </div>
     )
 }
