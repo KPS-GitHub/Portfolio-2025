@@ -1,16 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
-import ArticlePreview from '../components/article-preview'
-import PortfolioEntryPreview from '../components/portfolio-entry-preview'
+// import ArticlePreview from '../components/article-preview'
+import PortfolioShowcase from '../components/PortfolioShowcase/portfolio-showcase'
 
 class RootIndex extends React.Component {
   render() {
     const portEntries = get(this, 'props.data.allContentfulPortfolioEntry.nodes')
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+    // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
     const [author] = get(this, 'props.data.allContentfulPerson.nodes')
 
     return (
@@ -20,8 +21,8 @@ class RootIndex extends React.Component {
           title={author.name}
           content={author.shortBio}
         />
-        <PortfolioEntryPreview entries={portEntries} />
-        <ArticlePreview posts={posts} />
+        <PortfolioShowcase entries={portEntries} />
+        {/* <ArticlePreview posts={posts} /> */}
       </Layout>
     )
   }
@@ -31,13 +32,15 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
+    allContentfulPortfolioEntry(sort: { publishDate: DESC }) {
       nodes {
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
+        endTag
+        typeTags
+        techTags
+        featuredImage {
           gatsbyImage(
             layout: FULL_WIDTH
             placeholder: BLURRED
@@ -50,14 +53,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPortfolioEntry(sort: { publishDate: DESC }) {
+    allContentfulBlogPost(sort: { publishDate: DESC }) {
       nodes {
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
-        endTag
-        typeTags
-        techTags
+        tags
         heroImage {
           gatsbyImage(
             layout: FULL_WIDTH
