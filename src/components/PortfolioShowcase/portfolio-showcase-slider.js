@@ -39,7 +39,6 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           <div className="col-md-6">
             <Slider {...settings}>
               {entries.map((entry) => {
-                console.log("entry: ", entry);
                 return (
                   <div key={entry.title}>
                     <PortfolioShowcaseSlide entry={entry} />

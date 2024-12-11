@@ -44,10 +44,10 @@ class PortfolioEntryTemplate extends React.Component {
         <Seo
           title={entry.title}
           description={plainTextDescription}
-          image={`http:${entry.heroImage.resize.src}`}
+          image={`http:${entry.featuredImage.resize.src}`}
         />
         <Hero
-          image={entry.heroImage?.gatsbyImage}
+          image={entry.featuredImage?.gatsbyImage}
           title={entry.title}
           content={entry.description}
         />
