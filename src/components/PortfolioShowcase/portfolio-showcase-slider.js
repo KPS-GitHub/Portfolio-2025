@@ -4,15 +4,16 @@ import PortfolioShowcaseSlide from './portfolio-showcase-slide'
 // import { GatsbyImage } from 'gatsby-plugin-image'
 // import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
-import Container from '../container'
 // import Tags from '../tags'
-import * as styles from './portfolio-showcase.module.css'
 import Slider from '@ant-design/react-slick'
 // Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 const PortfolioShowcaseSlider = ({ entries }) => {
+  const [currentSlide, setCurrentSlide] = React.useState(0)
+
   if (!entries) return null
   if (!Array.isArray(entries)) return null
 
@@ -24,44 +25,31 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     centerPadding: "60px",
     speed: 500,
     focusOnSelect: true,
-    vertical: true
+    vertical: true,
+    beforeChange: (current, next) => setCurrentSlide(next),
   }
 
   return (
-    <div className={styles.sliderWrap}>
-      <Container>
-        <Slider {...settings}>
-          {entries.map((entry) => {
-            console.log("entry: ", entry);
-            return (
-              <div key={entry.title}>
-                <PortfolioShowcaseSlide entry={entry} />
-              </div>
-            )
-          })}
-        </Slider>
-
-
-        {/* <ul className={styles.articleList}>
-        {entries.map((entry) => {
-          return (
-            <li key={entry.slug}>
-              <Link to={`/portfolio/${entry.slug}`} className={styles.link}>
-                <GatsbyImage alt="" image={entry.heroImage.gatsbyImage} />
-                <h2 className={styles.title}>{entry.title}</h2>
-              </Link>
-              <div>
-                {entry.description?.raw && renderRichText(entry.description)}
-              </div>
-              <div className={styles.meta}>
-                <small className="meta">{entry.publishDate}</small>
-                <Tags tags={entry.tags} />
-              </div>
-            </li>
-          )
-        })}
-      </ul> */}
-      </Container>
+    <div>
+      <div className="container">
+        <div className="row">
+          <div className="col-md-6">
+            <GatsbyImage image={entries[currentSlide].featuredImage.gatsbyImage} alt={entries[currentSlide].featuredImage.alt} />
+          </div>
+          <div className="col-md-6">
+            <Slider {...settings}>
+              {entries.map((entry) => {
+                console.log("entry: ", entry);
+                return (
+                  <div key={entry.title}>
+                    <PortfolioShowcaseSlide entry={entry} />
+                  </div>
+                )
+              })}
+            </Slider>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

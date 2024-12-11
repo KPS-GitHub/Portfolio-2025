@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from '../components/layout'
 import Hero from '../components/hero'
@@ -39,7 +40,7 @@ export const pageQuery = graphql`
         endTag
         typeTags
         techTags
-        heroImage {
+        featuredImage {
           gatsbyImage(
             layout: FULL_WIDTH
             placeholder: BLURRED
