@@ -1,0 +1,7 @@
+.details-wrap {
+    position: absolute;
+    top: 10%;
+}
+.show {
+    z-index: 1;
+}

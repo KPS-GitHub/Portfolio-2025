@@ -1,4 +1,12 @@
-.preview-image-link {
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.preview-image-wrap {
   display: block;
   height: 85%;
   /* background: var(--black-fade-3); */
@@ -18,10 +26,3 @@
   transition: var(--transition-all-05);
 }
 
-.fade-out {
-  opacity: 0;
-}
-
-.fade-in {
-  opacity: 1;
-}

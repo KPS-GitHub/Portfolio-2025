@@ -99,3 +99,19 @@ pre,
 code {
   font-family: var(--font-monospace);
 }
+
+
+/* custom classes */
+.button-clean {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition-all-03);
+}
+
+.button-clean:hover {
+  border-bottom: 2px solid var(--black-fade-5);
+  transition: var(--transition-all-03);
+}
