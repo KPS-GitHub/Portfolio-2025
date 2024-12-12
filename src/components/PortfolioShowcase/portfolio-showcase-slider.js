@@ -9,7 +9,9 @@ import * as styles from './portfolio-showcase-slider.module.css';
 
 const PortfolioShowcaseSlider = ({ entries }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [fadeClass, setFadeClass] = useState(styles.fadeIn);
+  const [imageColFadeClass, setImageColFadeClass] = useState(styles.fadeIn);
+  const [showDetails, setShowDetails] = useState(false);
+  const [sliderColFadeClass, setSliderColFadeClass] = useState(styles.fadeIn);
 
   if (!entries) return null;
   if (!Array.isArray(entries)) return null;
@@ -36,10 +38,10 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     focusOnSelect: true,
     vertical: true,
     beforeChange: (current, next) => {
-      setFadeClass(styles.fadeOut);
+      setImageColFadeClass(styles.fadeOut);
       setTimeout(() => {
         setCurrentSlide(next);
-        setFadeClass(styles.fadeIn);
+        setImageColFadeClass(styles.fadeIn);
       }, 500); // Match the duration of the CSS transition in portfolio-showcase-slider.module.css
     },
   };
@@ -49,9 +51,9 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       <div className="row">
         <div className="col-md-7">
           <a className={styles.previewImageLink} href={`/portfolio/${currSlug}`}>
-            <GatsbyImage className={`${styles.gatsbyImage} ${fadeClass}`} fadeIn={true} fadeOut={true} image={currImg.gatsbyImage} alt={currImg.alt} />
+            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass}`} image={currImg.gatsbyImage} alt={currImg.alt} />
           </a>
-          <div className={styles.tagsWrap}>
+          <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
             {currTechTags?.map((tag, index) => {
               return <PortfolioShowcaseTag key={index} tag={tag} />
             })}
@@ -59,7 +61,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         </div>
         <div className="col-md-5">
           <Slider {...settings}>
-            {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} slideIndex={index} currSlide={currentSlide} />)}
+            {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} slideIndex={index} currSlide={currentSlide} setShowDetails={setShowDetails} />)}
           </Slider>
         </div>
       </div>

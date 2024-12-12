@@ -27,22 +27,23 @@
     border-bottom: 1.5px solid transparent;
 }
 
-.link {
+.view-details-button {
     display: none;
-    text-decoration: none;
-    transform: scale(1);
-    transition: all 0.3s ease;
+    padding: 0;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
 }
 
-.link:hover {
-    text-decoration: underline;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
+.view-details-button:hover {
     color: var(--black);
+    border-bottom: 2px solid var(--black-fade-5);
+    transition: all 0.3s ease-in-out;
 }
 
-.current-slide .link {
+.current-slide .view-details-button {
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
 }

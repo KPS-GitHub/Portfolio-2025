@@ -54,6 +54,12 @@
   --text-5xl: 64px;
   --text-6xl: 76px;
 
+  /* css transitions */
+  --transition-all-03: all 0.3s ease-in-out;
+  --transition-all-05: all 0.5s ease-in-out;
+  --transition-all-08: all 0.8s ease-in-out;
+  --transition-all-1: all 1s ease-in-out;
+
   /* tokens */
   /* colors */
   --primary: #4a90e2;
