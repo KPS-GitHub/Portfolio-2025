@@ -1,0 +1,17 @@
+.preview-image-link {
+    display: block;
+    height: 85%;
+    background: var(--black-fade-5);
+    border-radius: var(--radius-lg);
+}
+.gatsby-image {
+    height: 100%;
+    border-radius: var(--radius-lg);
+}
+
+.tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: var(--space-md);
+}
+

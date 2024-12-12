@@ -17,6 +17,8 @@
 
   /* radii */
   --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
 
   /* spacing */
   --space-sm: 4px;
@@ -57,6 +59,9 @@
   --primary: #4a90e2;
   --background: var(--white);
   --border: var(--black-fade-05);
+
+  /* shadow */
+  --shadow: 0 4px 6px var(--black-fade-3);
 
   /* text */
   /* color */

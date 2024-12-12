@@ -1,16 +1,12 @@
 import React from 'react'
 import PortfolioShowcaseSlide from './portfolio-showcase-slide'
-// import { Link } from 'gatsby'
-// import { GatsbyImage } from 'gatsby-plugin-image'
-// import { renderRichText } from 'gatsby-source-contentful/rich-text'
-
-// import Tags from '../tags'
 import Slider from '@ant-design/react-slick'
-// Import css files
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PortfolioShowcaseTag from './portfolio-showcase-tag';
 import { GatsbyImage } from 'gatsby-plugin-image'
-import * as styles from './portfolio-showcase.module.css'
+import * as styles from './portfolio-showcase-slider.module.css'
+
 
 const PortfolioShowcaseSlider = ({ entries }) => {
   const [currentSlide, setCurrentSlide] = React.useState(0)
@@ -18,6 +14,21 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   if (!entries) return null
   if (!Array.isArray(entries)) return null
 
+  let currSlug;
+  let currImg;
+  // let currEndTag;
+  // let currTypeTags;
+  let currTechTags;
+  if (entries[currentSlide]) {
+    const currSlide = entries[currentSlide];
+    currSlug = currSlide.slug;
+    currImg = currSlide.featuredImage;
+    // currEndTag = currSlide.endTag;
+    // currTypeTags = currSlide.typeTags;
+    currTechTags = currSlide.techTags;
+  }
+
+  // react-slick Slider settings
   const settings = {
     dots: false,
     className: "center",
@@ -35,19 +46,22 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       <div className="container">
         <div className="row">
           <div className="col-md-7">
-            <a className={styles.previewImageLink} href={`/portfolio/${entries[currentSlide].slug}`} >
-              <GatsbyImage fadeIn={true} image={entries[currentSlide].featuredImage.gatsbyImage} alt={entries[currentSlide].featuredImage.alt} />
+            <a className={styles.previewImageLink} href={`/portfolio/${currSlug}`} >
+              <GatsbyImage className={styles.gatsbyImage} fadeIn={true} fadeOut={true} image={currImg.gatsbyImage} alt={currImg.alt} />
             </a>
+            <div className={styles.tagsWrap}>
+              {/* <PortfolioShowcaseTag tag={currEndTag} /> */}
+              {/* {currTypeTags?.map((tag, index) => {
+                return <PortfolioShowcaseTag key={index} tag={tag} />
+              })} */}
+              {currTechTags?.map((tag, index) => {
+                return <PortfolioShowcaseTag key={index} tag={tag} />
+              })}
+            </div>
           </div>
           <div className="col-md-5">
             <Slider {...settings}>
-              {entries.map((entry, index) => {
-                return (
-                  <div key={entry.title} className={`${styles.slideOuterWrap} ${currentSlide === index ? styles.currentSlide : ''}`}>
-                    <PortfolioShowcaseSlide entry={entry} />
-                  </div>
-                )
-              })}
+              {entries.map((entry, index) => <PortfolioShowcaseSlide entry={entry} slideIndex={index} currSlide={currentSlide} />)}
             </Slider>
           </div>
         </div>
