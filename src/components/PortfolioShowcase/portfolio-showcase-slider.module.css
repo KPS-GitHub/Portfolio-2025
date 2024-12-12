@@ -1,17 +1,26 @@
 .preview-image-link {
     display: block;
     height: 85%;
-    background: var(--black-fade-5);
+    /* background: var(--black-fade-3); */
     border-radius: var(--radius-lg);
 }
 .gatsby-image {
     height: 100%;
     border-radius: var(--radius-lg);
+    transition: opacity 0.5s ease-in-out;
 }
+
+.fade-out {
+    opacity: 0;
+  }
+  
+  .fade-in {
+    opacity: 1;
+  }
 
 .tags-wrap {
     display: flex;
     flex-wrap: wrap;
     margin-top: var(--space-md);
 }
-
+  

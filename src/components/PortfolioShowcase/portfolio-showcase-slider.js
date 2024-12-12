@@ -1,30 +1,26 @@
-import React from 'react'
-import PortfolioShowcaseSlide from './portfolio-showcase-slide'
-import Slider from '@ant-design/react-slick'
+import React, { useState } from 'react';
+import Slider from '@ant-design/react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import PortfolioShowcaseSlide from './portfolio-showcase-slide';
 import PortfolioShowcaseTag from './portfolio-showcase-tag';
-import { GatsbyImage } from 'gatsby-plugin-image'
-import * as styles from './portfolio-showcase-slider.module.css'
-
+import { GatsbyImage } from 'gatsby-plugin-image';
+import * as styles from './portfolio-showcase-slider.module.css';
 
 const PortfolioShowcaseSlider = ({ entries }) => {
-  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [fadeClass, setFadeClass] = useState(styles.fadeIn);
 
-  if (!entries) return null
-  if (!Array.isArray(entries)) return null
+  if (!entries) return null;
+  if (!Array.isArray(entries)) return null;
 
   let currSlug;
   let currImg;
-  // let currEndTag;
-  // let currTypeTags;
   let currTechTags;
   if (entries[currentSlide]) {
     const currSlide = entries[currentSlide];
     currSlug = currSlide.slug;
     currImg = currSlide.featuredImage;
-    // currEndTag = currSlide.endTag;
-    // currTypeTags = currSlide.typeTags;
     currTechTags = currSlide.techTags;
   }
 
@@ -36,37 +32,39 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     slidesToShow: 3,
     infinite: true,
     centerPadding: "0px",
-    speed: 500,
+    speed: 1000,
     focusOnSelect: true,
     vertical: true,
-    beforeChange: (current, next) => setCurrentSlide(next),
-  }
+    beforeChange: (current, next) => {
+      setFadeClass(styles.fadeOut);
+      setTimeout(() => {
+        setCurrentSlide(next);
+        setFadeClass(styles.fadeIn);
+      }, 500); // Match the duration of the CSS transition in portfolio-showcase-slider.module.css
+    },
+  };
 
   return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-7">
-            <a className={styles.previewImageLink} href={`/portfolio/${currSlug}`} >
-              <GatsbyImage className={styles.gatsbyImage} fadeIn={true} fadeOut={true} image={currImg.gatsbyImage} alt={currImg.alt} />
-            </a>
-            <div className={styles.tagsWrap}>
-              {/* <PortfolioShowcaseTag tag={currEndTag} /> */}
-              {/* {currTypeTags?.map((tag, index) => {
-                return <PortfolioShowcaseTag key={index} tag={tag} />
-              })} */}
-              {currTechTags?.map((tag, index) => {
-                return <PortfolioShowcaseTag key={index} tag={tag} />
-              })}
-            </div>
-          </div>
-          <div className="col-md-5">
-            <Slider {...settings}>
-              {entries.map((entry, index) => <PortfolioShowcaseSlide entry={entry} slideIndex={index} currSlide={currentSlide} />)}
-            </Slider>
+    <div className="container">
+      <div className="row">
+        <div className="col-md-7">
+          <a className={styles.previewImageLink} href={`/portfolio/${currSlug}`}>
+            <GatsbyImage className={`${styles.gatsbyImage} ${fadeClass}`} fadeIn={true} fadeOut={true} image={currImg.gatsbyImage} alt={currImg.alt} />
+          </a>
+          <div className={styles.tagsWrap}>
+            {currTechTags?.map((tag, index) => {
+              return <PortfolioShowcaseTag key={index} tag={tag} />
+            })}
           </div>
         </div>
+        <div className="col-md-5">
+          <Slider {...settings}>
+            {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} slideIndex={index} currSlide={currentSlide} />)}
+          </Slider>
+        </div>
       </div>
-  )
-}
+    </div>
+  );
+};
 
-export default PortfolioShowcaseSlider
+export default PortfolioShowcaseSlider;
