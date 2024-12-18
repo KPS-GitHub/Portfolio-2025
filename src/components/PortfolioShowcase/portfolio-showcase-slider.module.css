@@ -1,9 +1,26 @@
 .fade-out {
   opacity: 0;
+  transition: var(--transition-all-03);
 }
 
 .fade-in {
   opacity: 1;
+  transition: var(--transition-all-03);
+}
+
+.details-col-fade-out {
+  position: relative;
+  z-index: -1;
+  height: 0;
+  opacity: 0;
+  transition: var(--transition-all-03);
+}
+.details-col-fade-in {
+  position: relative;
+  z-index: 1;
+  height: auto;
+  opacity: 1;
+  transition: var(--transition-all-03);
 }
 
 .preview-image-wrap {

@@ -1,7 +1,7 @@
 import React from 'react'
 import * as styles from './portfolio-showcase-slide.module.css'
 
-const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShowDetails }) => {
+const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShowDetails, detailsViewToggle }) => {
 
     return (
         <div className={`${styles.slideOuterWrap} ${currSlideIndex === thisSlideIndex ? styles.currentSlide : ''}`}>

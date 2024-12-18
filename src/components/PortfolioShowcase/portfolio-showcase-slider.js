@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from '@ant-design/react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,18 +12,22 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   const [currentEntryIndex, setCurrentEntryIndex] = useState(0);
   const [imageColFadeClass, setImageColFadeClass] = useState(styles.fadeIn);
   const [showDetails, setShowDetails] = useState(false);
+  const [sliderFadeClass, setSliderFadeClass] = useState(styles.detailsColFadeIn);
+  const [detailsFadeClass, setDetailsFadeClass] = useState(styles.detailsColFadeOut);
 
-  // NEED handler for toggling between the slider and the details
-  // -will allow for animation that fades the elements out/in
-  //
-  //
-  //
-  //
-
-  // making sure the slider/details column element that is visible is also on top of the other element
-  // -should be a cleaner way to do this with the css modules but haven't gotten that to work yet
-  const zIndexSlider = showDetails ? { zIndex: -1 } : { zIndex: 1 }; 
-  const zIndexDetails = showDetails ? { zIndex: 1 } : { zIndex: -1 };
+  useEffect(() => {
+    if (showDetails) {
+      setSliderFadeClass(styles.detailsColFadeOut);
+      setTimeout(() => {
+        setDetailsFadeClass(styles.detailsColFadeIn);
+      }, 500); // Match the duration of the CSS transition
+    } else {
+      setDetailsFadeClass(styles.detailsColFadeOut);
+      setTimeout(() => {
+        setSliderFadeClass(styles.detailsColFadeIn);
+      }, 500); // Match the duration of the CSS transition
+    }
+  }, [showDetails]);
 
   if (!entries) return null;
   if (!Array.isArray(entries)) return null;
@@ -32,7 +36,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   let currImg;
   let currTechTags;
   if (entries[currentEntryIndex]) {
-    let currSlide = entries[currentEntryIndex];
+    currSlide = entries[currentEntryIndex];
     currImg = currSlide.featuredImage;
     currTechTags = currSlide.techTags;
   }
@@ -63,7 +67,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       <div className="row">
         <div className="col-md-7">
           <div className={styles.previewImageWrap}>
-            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass}`} image={currImg.gatsbyImage} alt={currImg.alt} />
+            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass}`} image={currImg.gatsbyImage} alt={currImg.title} />
           </div>
           <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
             {currTechTags?.map((tag, index) => {
@@ -72,11 +76,11 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
         </div>
         <div className="col-md-5">
-          <Slider {...settings} className={showDetails ? styles.fadeOut : styles.fadeIn} style={zIndexSlider}>
+          <Slider {...settings} className={sliderFadeClass}>
             {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
           </Slider>
-          <div className={showDetails ? styles.fadeIn : styles.fadeOut} style={zIndexDetails}>
-            <PortfolioShowcaseDetails entry={currSlide} showDetails={showDetails} setShowDetails={setShowDetails} />
+          <div className={detailsFadeClass}>
+            <PortfolioShowcaseDetails entry={currSlide} setShowDetails={setShowDetails} />
           </div>
         </div>
       </div>
