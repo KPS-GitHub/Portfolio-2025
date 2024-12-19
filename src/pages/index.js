@@ -1,27 +1,28 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from '../components/layout'
-import Hero from '../components/hero'
-import ArticlePreview from '../components/article-preview'
-import PortfolioEntryPreview from '../components/portfolio-entry-preview'
+// import Hero from '../components/hero'
+// import ArticlePreview from '../components/article-preview'
+import PortfolioShowcase from '../components/PortfolioShowcase/portfolio-showcase'
 
 class RootIndex extends React.Component {
   render() {
     const portEntries = get(this, 'props.data.allContentfulPortfolioEntry.nodes')
-    const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
-    const [author] = get(this, 'props.data.allContentfulPerson.nodes')
+    // const posts = get(this, 'props.data.allContentfulBlogPost.nodes')
+    // const [author] = get(this, 'props.data.allContentfulPerson.nodes')
 
     return (
       <Layout location={this.props.location}>
-        <Hero
+        {/* <Hero
           image={author.heroImage.gatsbyImage}
           title={author.name}
           content={author.shortBio}
-        />
-        <PortfolioEntryPreview entries={portEntries} />
-        <ArticlePreview posts={posts} />
+        /> */}
+        <PortfolioShowcase entries={portEntries} />
+        {/* <ArticlePreview posts={posts} /> */}
       </Layout>
     )
   }
@@ -31,25 +32,6 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImage(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
-        description {
-          raw
-        }
-      }
-    }
     allContentfulPortfolioEntry(sort: { publishDate: DESC }) {
       nodes {
         title
@@ -58,6 +40,29 @@ export const pageQuery = graphql`
         endTag
         typeTags
         techTags
+        featuredImage {
+          gatsbyImage(
+            layout: FULL_WIDTH
+            placeholder: BLURRED
+            width: 424
+            height: 212
+          )
+          title
+        }
+        description {
+          raw
+        }
+        body {
+          raw
+        }
+      }
+    }
+    allContentfulBlogPost(sort: { publishDate: DESC }) {
+      nodes {
+        title
+        slug
+        publishDate(formatString: "MMMM Do, YYYY")
+        tags
         heroImage {
           gatsbyImage(
             layout: FULL_WIDTH
