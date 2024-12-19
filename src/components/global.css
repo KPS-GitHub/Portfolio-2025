@@ -36,6 +36,16 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* simple fade in on page load */
+/* body {
+  animation: fadeIn 1s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} */
+/* END simple fade in on page load */
+
 img {
   display: block;
   width: 100%;

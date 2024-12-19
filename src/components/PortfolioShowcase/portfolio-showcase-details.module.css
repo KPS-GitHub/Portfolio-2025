@@ -19,7 +19,6 @@
 @media screen and (max-width: 768px) {
     .details-wrap {
         position: relative;
-        /* top: 2rem; */
         height: fit-content;
         overflow-y: scroll;
     }

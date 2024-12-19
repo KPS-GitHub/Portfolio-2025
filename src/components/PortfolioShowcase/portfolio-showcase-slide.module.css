@@ -8,6 +8,9 @@
     border-radius: var(--radius);
     transition: all 0.3s ease;
 }
+.slide-wrap:hover {
+    cursor: pointer;
+}
 
 .slide-outer-wrap * {
     color: var(--black-fade-3);
