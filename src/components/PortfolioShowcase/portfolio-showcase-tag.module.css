@@ -1,4 +1,5 @@
 .tag {
+    height: fit-content;
     border-radius: var(--radius-lg);
     color: var(--text-color);
     background-color: var(--tag-color);

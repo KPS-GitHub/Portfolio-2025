@@ -52,6 +52,9 @@ export const pageQuery = graphql`
         description {
           raw
         }
+        body {
+          raw
+        }
       }
     }
     allContentfulBlogPost(sort: { publishDate: DESC }) {

@@ -1,7 +1,17 @@
 .details-wrap {
     position: absolute;
-    top: 10%;
+    /* top: 10%; */
+    height: 100%;
+    overflow-y: scroll;
 }
 .show {
     z-index: 1;
+}
+
+.body {
+    
+}
+
+.close-button {
+    margin-bottom: 15px;
 }
