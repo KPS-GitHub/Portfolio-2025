@@ -103,15 +103,16 @@ code {
 
 /* custom classes */
 .button-clean {
-  background: none;
+  background: var(--black-fade-05);
   border: none;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  padding: 0;
-  border-bottom: 2px solid transparent;
+  padding: 1px 5px;
+  border-bottom: 3px solid transparent;
   transition: var(--transition-all-03);
 }
 
 .button-clean:hover {
-  border-bottom: 2px solid var(--black-fade-5);
+  border-bottom: 3px solid var(--black-fade-5);
   transition: var(--transition-all-03);
 }
