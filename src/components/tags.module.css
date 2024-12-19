@@ -4,7 +4,7 @@
 }
 
 .tag {
-  background-color: var(--black-fade-5);
+  background-color: var(--black-fade-05);
   border-radius: var(--radius-sm);
   line-height: var(--solid);
   padding: var(--space-sm) var(--space-md);

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Container = ({ children, as = 'div' }) => {
+const CustomContainer = ({ children, as = 'div' }) => {
   const Tag = as
 
   return (
@@ -16,4 +16,4 @@ const Container = ({ children, as = 'div' }) => {
   )
 }
 
-export default Container
+export default CustomContainer
