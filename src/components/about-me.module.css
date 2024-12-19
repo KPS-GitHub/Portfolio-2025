@@ -1,0 +1,28 @@
+.text-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    padding: 0 20px;
+}
+.text-wrap p:last-of-type {
+    margin-bottom: 0;
+}
+
+.about-image {
+    max-width: 20rem;
+}
+
+.image-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 991px) {
+    .text-wrap {
+        font-size: 16px;
+        padding: 20px;
+    }
+}
