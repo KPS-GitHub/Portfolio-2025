@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Slider from '@ant-design/react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,14 +7,19 @@ import PortfolioShowcaseTag from './portfolio-showcase-tag';
 import PortfolioShowcaseDetails from './portfolio-showcase-details';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as styles from './portfolio-showcase-slider.module.css';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const PortfolioShowcaseSlider = ({ entries }) => {
+  // ref to enable prev/next buttons on mobile slider
+  const slider = useRef(null);
+
   const [currentEntryIndex, setCurrentEntryIndex] = useState(0);
   const [imageColFadeClass, setImageColFadeClass] = useState(styles.fadeIn);
   const [showDetails, setShowDetails] = useState(false);
   const [sliderFadeClass, setSliderFadeClass] = useState(styles.detailsColFadeIn);
   const [detailsFadeClass, setDetailsFadeClass] = useState(styles.detailsColFadeOut);
 
+  // fade out/in transition for the slider/details column
   useEffect(() => {
     if (showDetails) {
       setSliderFadeClass(styles.detailsColFadeOut);
@@ -60,14 +65,32 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         setImageColFadeClass(styles.fadeIn);
       }, 500); // Match the duration of the CSS transition in portfolio-showcase-slider.module.css
     },
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          buttons: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+          vertical: false,
+          focusOnSelect: false
+        }
+      }
+    ]
   };
 
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-7">
+        <div className={`col-md-7 ${styles.imageCol}`}>
           <div className={styles.previewImageWrap}>
             <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass}`} image={currImg.gatsbyImage} alt={currImg.title} />
+            <div className={styles.sliderButtonsWrap}>
+              <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
+              <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
+            </div>
           </div>
           <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
             {currTechTags?.map((tag, index) => {
@@ -76,7 +99,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
         </div>
         <div className="col-md-5">
-          <Slider {...settings} className={sliderFadeClass}>
+          <Slider ref={slider} {...settings} className={sliderFadeClass}>
             {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
           </Slider>
           <div className={detailsFadeClass}>
