@@ -6,7 +6,7 @@
   max-width: var(--size-max-width);
   align-items: center;
   margin: 0 auto;
-  padding: var(--space-2xl) var(--size-gutter);
+  padding: var(--space-2xl) 0;
   height: fit-content;
 }
 
