@@ -10,7 +10,7 @@ import {
 } from 'react-icons/fa';
 
 const Navigation = ({ me }) => {
-  console.log("me: ", me);
+  // console.log("me: ", me);
   const {
     email, 
     phone, 
