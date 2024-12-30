@@ -17,19 +17,19 @@
   gap: var(--space-xl);
 }
 
-.navigationItem {
+.navigation-item {
   display: inline-flex;
   align-items: center;
   flex-direction: row;
 }
 
-.navigationItem a {
+.navigation-item a {
   border-bottom: 1.5px solid transparent;
   color: currentColor;
   text-decoration: none;
 }
 
-.navigationItem a:hover {
+.navigation-item a:hover {
   border-bottom-color: var(--primary);
   color: var(--primary);
 }
@@ -50,6 +50,11 @@
 .links-wrap {
   display: flex;
   gap: var(--space-xl);
+}
+
+.link-icon {
+  height: 2rem;
+  width: 2rem;
 }
 
 @media (max-width: 767px) {

@@ -4,16 +4,16 @@ import { Link } from 'gatsby'
 import * as styles from './navigation.module.css'
 import "@fontsource/anton";
 import {
-  // FaEnvelope, 
+  FaEnvelope, 
   FaGithub,
-  // FaPhone 
+  FaPhone 
 } from 'react-icons/fa';
 
 const Navigation = ({ me }) => {
   console.log("me: ", me);
   const {
-    // email, 
-    // phone, 
+    email, 
+    phone, 
     // facebook, 
     // twitter, 
     github
@@ -28,14 +28,14 @@ const Navigation = ({ me }) => {
         {/* links */}
         <div className={styles.linksWrap}>
           {me && me.github && <Link to={`${github}`} className={styles.navigationItem}>
-            <FaGithub />
+            <FaGithub className={`${styles.linkIcon}`} />
           </Link>}
-          {/* {me && me.email && <Link to={`mailto:${email}`} className={styles.navigationItem}>
-        <FaEnvelope />
-      </Link>} */}
-          {/* {me && me.phone && <Link to={`tel:${phone}`} className={styles.navigationItem}>
-        <FaPhone />
-      </Link>} */}
+          {me && me.email && <Link to={`mailto:${email}`} className={styles.navigationItem}>
+        <FaEnvelope className={`${styles.linkIcon}`} />
+      </Link>}
+          {me && me.phone && <Link to={`tel:${phone}`} className={styles.navigationItem}>
+        <FaPhone className={`${styles.linkIcon}`} />
+      </Link>}
         </div>
       </nav>
     </div>
