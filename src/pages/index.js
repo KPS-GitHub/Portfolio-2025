@@ -17,7 +17,7 @@ class RootIndex extends React.Component {
     const me = get(this, 'props.data.me');
 
     return (
-      <Layout location={this.props.location}>
+      <Layout location={this.props.location} me={me}>
         {/* <Hero
           image={author.heroImage.gatsbyImage}
           title={author.name}
