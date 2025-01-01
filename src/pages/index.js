@@ -8,6 +8,7 @@ import Layout from '../components/layout'
 // import ArticlePreview from '../components/article-preview'
 import PortfolioShowcase from '../components/PortfolioShowcase/portfolio-showcase'
 import AboutMeSec from '../components/about-me';
+import FadeIn from '../components/fadeIn';
 
 class RootIndex extends React.Component {
   render() {
@@ -23,11 +24,17 @@ class RootIndex extends React.Component {
           title={author.name}
           content={author.shortBio}
         /> */}
-        <AboutMeSec me={me} />
-        <br/>
-        <br/>
-        <br/>
-        <PortfolioShowcase entries={portEntries} />
+        <FadeIn delay={250}>
+          <AboutMeSec me={me} />
+        </FadeIn>
+        <br />
+        <br />
+        <br />
+        <FadeIn delay={500}>
+          <PortfolioShowcase entries={portEntries} />
+        </FadeIn>
+
+
         {/* <ArticlePreview posts={posts} /> */}
       </Layout>
     )
