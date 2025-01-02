@@ -1,7 +1,6 @@
-// filepath: /c:/Users/kenna/Web Dev/Portfolio Site/portfolio-site/src/functions/useAddRemoveClassInSequence.js
 import { useEffect } from 'react';
 
-const useAddRemoveClassInSequence = (elements, className, elementDelay, rerunDelay) => {
+const useAddRemoveClassInSequence = (elements, className, startDelay, elementDelay, rerunDelay) => {
   useEffect(() => {
     const bounceElement = (element) => {
       element.classList.add(className);
@@ -10,22 +9,23 @@ const useAddRemoveClassInSequence = (elements, className, elementDelay, rerunDel
       }, 500); // Duration of the bounce animation
     };
 
-    elements.forEach((element, index) => {
-      setTimeout(() => {
-        bounceElement(element);
-      }, index * elementDelay); // Delay before bouncing the next element
-    });
-
-    const interval = setInterval(() => {
+    const startAnimation = () => {
       elements.forEach((element, index) => {
         setTimeout(() => {
           bounceElement(element);
         }, index * elementDelay); // Delay before bouncing the next element
       });
-    }, rerunDelay); // Restart the animation after rerunDelay
+    };
 
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [elements, className, elementDelay, rerunDelay]);
+    const startTimeout = setTimeout(() => {
+      startAnimation();
+      const interval = setInterval(startAnimation, rerunDelay); // Restart the animation after rerunDelay
+
+      return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, startDelay); // Initial start delay
+
+    return () => clearTimeout(startTimeout); // Cleanup start timeout on component unmount
+  }, [elements, className, startDelay, elementDelay, rerunDelay]);
 };
 
 export default useAddRemoveClassInSequence;

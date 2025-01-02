@@ -1,3 +1,7 @@
+:root {
+  --bounce-color: var(--theme-primary);
+}
+
 .container {
   position: sticky;
   top: 0;
@@ -15,6 +19,7 @@
   list-style: none;
   margin: 0;
   gap: var(--space-xl);
+  /* text-shadow: 2px 2px black; */
 }
 
 .navigation-item {
@@ -46,26 +51,25 @@
   text-decoration: none;
 }
 
-.logoLetter {
+.logo-letter {
   position: relative;
   bottom: 0;
-  color: var(--theme-primary);
-  /* font-size: 4rem; */
+  color: var(--black);
+  text-shadow: var(--shadow);
   transition: var(--transition-all-03);
 }
-.logoLetterBounce {
+.logo-letter-bounce {
   bottom: 2px;
-  color: var(--theme-secondary-dark);
-  /* font-size: 4.1rem; */
+  color: var(--bounce-color);
+  text-shadow: var(--shadow-lifted);
   transition: var(--transition-all-03);
 }
 
-/* .logo-initial-k {
-  color: var(--theme-primary);
+.logo-initial-k {
 }
 .logo-initial-s {
-  color: var(--theme-primary-dark);
-} */
+}
+
 
 .links-wrap {
   display: flex;
@@ -75,6 +79,17 @@
 .link-icon {
   height: 2rem;
   width: 2rem;
+  transform: scale(1);
+  filter: var(--drop-shadow);
+  transition: var(--transition-all-05);
+}
+.link-icon:hover {
+  /* height: 2.1rem;
+  width: 2.1rem; */
+  color: var(--theme-primary);
+  transform: scale(1.1);
+  filter: var(--drop-shadow-lifted);
+  transition: var(--transition-all-02);
 }
 
 @media (max-width: 767px) {

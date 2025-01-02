@@ -61,7 +61,10 @@
   --text-6xl: 76px;
 
   /* css transitions */
+  --transition-all-01: all 0.1s ease-in-out;
+  --transition-all-02: all 0.2s ease-in-out;
   --transition-all-03: all 0.3s ease-in-out;
+  --transition-all-04: all 0.4s ease-in-out;
   --transition-all-05: all 0.5s ease-in-out;
   --transition-all-08: all 0.8s ease-in-out;
   --transition-all-1: all 1s ease-in-out;
@@ -73,7 +76,10 @@
   --border: var(--black-fade-05);
 
   /* shadow */
-  --shadow: 0 4px 6px var(--black-fade-3);
+  --shadow: 1px 2px 2px var(--black-fade-5);
+  --shadow-lifted: 3px 3px 2px var(--black-fade-5);
+  --drop-shadow: drop-shadow(1px 2px 2px var(--black-fade-5));
+  --drop-shadow-lifted: drop-shadow(3px 3px 2px var(--black-fade-5));
 
   /* text */
   /* color */

@@ -24,7 +24,7 @@ const Navigation = ({ me }) => {
     const letters = document.querySelectorAll(`.${styles.logoLetter}`);
     setLetters(letters);
   }, []);
-  useAddRemoveClassInSequence(letters, styles.logoLetterBounce, 150, 10000);
+  useAddRemoveClassInSequence(letters, styles.logoLetterBounce, 1000, 150, 10000);
 
   return (
     <div className={`container`}>
