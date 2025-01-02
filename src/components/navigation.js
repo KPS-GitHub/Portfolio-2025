@@ -9,6 +9,7 @@ import {
   FaPhone 
 } from 'react-icons/fa';
 import { get } from 'lodash';
+import FadeIn from './fadeIn';
 
 const Navigation = ({ me }) => {
   // console.log("me: ", me);
@@ -17,6 +18,7 @@ const Navigation = ({ me }) => {
   const github = get(me, 'github', null);
   return (
     <div className={`container`}>
+      <FadeIn delay={200}>
       <nav role="navigation" className={styles.container} aria-label="Main">
         {/* logo */}
         <Link to="/" className={styles.logoLink}>
@@ -35,6 +37,7 @@ const Navigation = ({ me }) => {
       </Link>}
         </div>
       </nav>
+      </FadeIn>
     </div>
 
   )
