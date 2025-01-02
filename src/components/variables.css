@@ -14,6 +14,12 @@
   --black-fade-5: rgba(0, 0, 0, 0.5);
   --black-fade-3: rgba(0, 0, 0, 0.3);
   --black-fade-05: rgba(0, 0, 0, 0.05);
+  /* theme palette link: https://coolors.co/56e39f-59c9a5-eecfd4-efb9cb-e6adec */
+  --theme-primary: #56E39F; /* aquamarine */
+  --theme-primary-dark: #59C9A5; /* mint */
+  --theme-secondary: #EECFD4; /* mimi pink */
+  --theme-secondary-dark: #EFB9CB; /* orchid pink */
+  --theme-secondary-accent: #E6ADEC; /* plum (web) */
 
   /* radii */
   --radius-sm: 4px;
