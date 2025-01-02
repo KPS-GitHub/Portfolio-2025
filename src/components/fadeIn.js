@@ -11,6 +11,7 @@ const FadeIn = ({ children, delay = 0, duration = 500 }) => {
     return () => clearTimeout(timer);
   }, [delay]);
 
+  // note: the classes used on the wrapper div are Tailwind CSS classes
   return (
     <div
       className={`transition-opacity duration-500 ease-in-out ${

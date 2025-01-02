@@ -24,13 +24,13 @@ class RootIndex extends React.Component {
           title={author.name}
           content={author.shortBio}
         /> */}
-        <FadeIn delay={250}>
+        <FadeIn delay={500}>
           <AboutMeSec me={me} />
         </FadeIn>
         <br />
         <br />
         <br />
-        <FadeIn delay={500}>
+        <FadeIn delay={750}>
           <PortfolioShowcase entries={portEntries} />
         </FadeIn>
 
