@@ -11,6 +11,7 @@
     "@ant-design/react-slick": "^1.1.2",
     "@contentful/rich-text-plain-text-renderer": "^15.12.1",
     "@fontsource/anton": "^5.1.0",
+    "@fontsource/montserrat": "^5.1.1",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",
     "gatsby": "^5.5.0",

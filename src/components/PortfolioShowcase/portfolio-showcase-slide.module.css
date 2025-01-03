@@ -48,3 +48,13 @@
 .current-slide:hover .view-details-button {
 
 }
+
+.view-details-button:hover {
+    border-bottom: 3px solid var(--theme-accent);
+}
+/* .view-details-button.green-border:hover {
+    border-bottom: 3px solid var(--theme-primary);
+}
+.view-details-button.pink-border:hover {
+    border-bottom: 3px solid var(--theme-accent);
+} */

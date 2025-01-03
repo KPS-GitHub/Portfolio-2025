@@ -1,7 +1,7 @@
 :root {
   /* primitives */
   /* font-family */
-  --font-sans: 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  --font-sans: 'Montserrat','Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol';
   --font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
@@ -20,6 +20,15 @@
   --theme-secondary: #EECFD4; /* mimi pink */
   --theme-secondary-dark: #EFB9CB; /* orchid pink */
   --theme-secondary-accent: #E6ADEC; /* plum (web) */
+  --theme-accent: #70CDFF; /* light sky blue */
+  --theme-accent-2: #A7A3E0; /* wisteria */
+
+  /* --theme-primary: #59C9A5;
+  --theme-primary-light: #56E39F;
+  --theme-secondary: #E6ADEC;
+  --theme-secondary-light: #EFB9CB;
+  --theme-secondary-lighter: #EECFD4; */
+
 
   /* radii */
   --radius-sm: 4px;

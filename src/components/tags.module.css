@@ -4,6 +4,7 @@
 }
 
 .tag {
+  display: block;
   background-color: var(--black-fade-05);
   border-radius: var(--radius-sm);
   line-height: var(--solid);

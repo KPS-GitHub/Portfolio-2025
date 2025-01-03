@@ -1,5 +1,8 @@
 .tag {
-    height: fit-content;
+    display: inline-block;
+    position: relative;
+    height: 3rem;
+    width: fit-content;
     border-radius: var(--radius-lg);
     color: var(--text-color);
     background-color: var(--tag-color);

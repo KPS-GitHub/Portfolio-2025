@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "@fontsource/montserrat";
 
 import Layout from '../components/layout'
 // import Hero from '../components/hero'
@@ -24,18 +25,19 @@ class RootIndex extends React.Component {
           title={author.name}
           content={author.shortBio}
         /> */}
-        <FadeIn delay={500}>
-          <AboutMeSec me={me} />
-        </FadeIn>
-        <br />
-        <br />
-        <br />
-        <FadeIn delay={750}>
-          <PortfolioShowcase entries={portEntries} />
-        </FadeIn>
+        <div className='container'>
+          <FadeIn delay={500}>
+            <AboutMeSec me={me} />
+          </FadeIn>
+          <br />
+          <br />
+          <br />
+          <FadeIn delay={750}>
+            <PortfolioShowcase entries={portEntries} />
+          </FadeIn>
+          {/* <ArticlePreview posts={posts} /> */}
+        </div>
 
-
-        {/* <ArticlePreview posts={posts} /> */}
       </Layout>
     )
   }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-const useAddRemoveClassInSequence = (elements, className, startDelay, elementDelay, rerunDelay) => {
+const useAddRemoveClassAnimations = (elements, className, startDelay, elementDelay, rerunDelay) => {
   useEffect(() => {
     const bounceElement = (element) => {
       element.classList.add(className);
@@ -28,4 +28,4 @@ const useAddRemoveClassInSequence = (elements, className, startDelay, elementDel
   }, [elements, className, startDelay, elementDelay, rerunDelay]);
 };
 
-export default useAddRemoveClassInSequence;
+export default useAddRemoveClassAnimations;

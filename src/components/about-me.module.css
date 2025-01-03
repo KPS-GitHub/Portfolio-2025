@@ -20,7 +20,9 @@
     align-items: center;
 }
 
-.about-body {}
+.about-body {
+    padding: 1rem;
+}
 
 @media screen and (max-width: 991px) {
     .text-wrap {
