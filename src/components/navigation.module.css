@@ -1,4 +1,11 @@
+:root {
+  --nav-height: 8rem;
+  --nav-height-fixed: 6rem;
+  --bounce-color: var(--theme-primary);
+}
+
 .container {
+  display: block;
   position: sticky;
   top: 0;
   display: flex;
@@ -6,8 +13,9 @@
   max-width: var(--size-max-width);
   align-items: center;
   margin: 0 auto;
-  padding: var(--space-2xl) 0;
-  height: fit-content;
+  padding: var(--space-3xl) 0;
+  height: var(--nav-height) !important;
+  margin-bottom: 4rem;
 }
 
 .navigation {
@@ -15,6 +23,7 @@
   list-style: none;
   margin: 0;
   gap: var(--space-xl);
+  /* text-shadow: 2px 2px black; */
 }
 
 .navigation-item {
@@ -35,26 +44,92 @@
 }
 
 .logo {
-  /* height: var(--size-logo);
-  width: var(--size-logo); */
   display: block;
-  font-family: 'Anton';
+  font-family: var(--font-sans);
   font-size: 4rem;
+  letter-spacing: -4px;
+  padding: var(--space-xl) var(--space-3xl);
 }
 
 .logoLink, .logoLink:hover {
   text-decoration: none;
-  color: black;
 }
+
+.logo-letter {
+  position: relative;
+  bottom: 0;
+  color: var(--black);
+  text-shadow: 0 0 0 var(--black);
+  transition: var(--transition-all-03);
+}
+.logo-letter-bounce {
+  bottom: 2px;
+  color: var(--bounce-color);
+  text-shadow: var(--shadow-lifted);
+  transition: var(--transition-all-03);
+}
+
+.logo-initial-k {
+  letter-spacing: -1px;
+  color: var(--theme-primary);
+  font-weight: var(--bold);
+}
+.logo-initial-s {
+  letter-spacing: -1px;
+  color: var(--theme-primary);
+  font-weight: var(--bold);
+}
+
 
 .links-wrap {
   display: flex;
   gap: var(--space-xl);
+  height: 3rem;
+  padding: 0 var(--space-xl);
+}
+
+
+.nav-icon-link {
+  /* position: relative;
+  bottom: 0; */
+  display: block;
+  margin-left: 2rem;
+  transform: scale(1);
+  color: var(--black);
+  text-shadow: 0 0 0 var(--black);
+  transition: var(--transition-all-03);
+}
+.nav-icon-link-bounce {
+  /* bottom: 2px; */
+  color: var(--bounce-color);
+  transform: scale(1.1);
+  text-shadow: var(--shadow-lifted);
+  transition: var(--transition-all-01);
 }
 
 .link-icon {
   height: 2rem;
   width: 2rem;
+  transform: scale(1);
+  filter: var(--drop-shadow);
+  transition: var(--transition-all-05);
+}
+.link-icon:hover {
+  /* height: 2.1rem;
+  width: 2.1rem; */
+  color: var(--theme-primary);
+  transform: scale(1.1);
+  filter: var(--drop-shadow-lifted);
+  transition: var(--transition-all-02);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: white; /* Adjust as needed */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
 }
 
 @media (max-width: 767px) {

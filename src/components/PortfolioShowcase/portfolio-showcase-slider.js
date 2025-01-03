@@ -84,9 +84,9 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   return (
     <div className="container">
       <div className="row">
-        <div className={`col-md-7 ${styles.imageCol}`}>
+        <div className={`col-md-6 ${styles.imageCol}`}>
           <div className={styles.previewImageWrap}>
-            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass}`} image={currImg.gatsbyImage} alt={currImg.title} />
+            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
             <div className={styles.sliderButtonsWrap}>
               <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
               <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
@@ -94,16 +94,17 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
           <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
             {currTechTags?.map((tag, index) => {
-              return <PortfolioShowcaseTag key={index} tag={tag} />
+              return <PortfolioShowcaseTag key={index} tag={tag} index={index} />
             })}
           </div>
         </div>
-        <div className="col-md-5">
-          <Slider ref={slider} {...settings} className={sliderFadeClass}>
+        <div className="col-md-1"></div>
+        <div className="col-md-4 block-accent-blue">
+          <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
             {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
           </Slider>
           <div className={detailsFadeClass}>
-            <PortfolioShowcaseDetails entry={currSlide} setShowDetails={setShowDetails} />
+            <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} setShowDetails={setShowDetails} />
           </div>
         </div>
       </div>
