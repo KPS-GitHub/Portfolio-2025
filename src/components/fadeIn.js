@@ -17,7 +17,7 @@ const FadeIn = ({ children, delay = 0, duration = 500 }) => {
       className={`transition-opacity duration-500 ease-in-out ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
-      style={{ transitionDuration: `${duration}ms` }}
+      style={{ transitionDuration: `${duration}ms`, width: '100%' }}
     >
       {children}
     </div>

@@ -1,20 +1,29 @@
 :root {
-  --nav-height: 8rem;
-  --nav-height-fixed: 6rem;
   --bounce-color: var(--theme-primary);
 }
 
-.container {
+.nav-outer-wrap {
+  max-width: 100vw;
   display: block;
-  position: sticky;
+  position: relative;
   top: 0;
+  padding: 1rem 0;
+}
+.nav-inner-wrap {
   display: flex;
   justify-content: space-between;
   max-width: var(--size-max-width);
   align-items: center;
+  transition: var(--transition-all-03);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--size-max-width);
   margin: 0 auto;
-  padding: var(--space-3xl) 0;
-  height: var(--nav-height) !important;
+  /* height: var(--nav-height) !important; */
   margin-bottom: 4rem;
 }
 
@@ -43,16 +52,16 @@
   color: var(--primary);
 }
 
-.logo {
+.logo-link, .logo-link:hover {
   display: block;
+  text-decoration: none;
+}
+
+.logo {
   font-family: var(--font-sans);
   font-size: 4rem;
   letter-spacing: -4px;
   padding: var(--space-xl) var(--space-3xl);
-}
-
-.logoLink, .logoLink:hover {
-  text-decoration: none;
 }
 
 .logo-letter {
@@ -77,6 +86,12 @@
 .logo-initial-s {
   letter-spacing: -1px;
   color: var(--theme-primary);
+  font-weight: var(--bold);
+}
+
+.logo-slash {
+  display: none;
+  color: var(--black);
   font-weight: var(--bold);
 }
 
@@ -123,16 +138,43 @@
   transition: var(--transition-all-02);
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: white; /* Adjust as needed */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
-}
 
-@media (max-width: 767px) {
+
+@media (max-width: 768px) {
+  .nav-outer-wrap {
+    padding: 2rem 2rem 1rem 1rem;
+  }
+
+  .logo {
+    padding: var(--space-md) var(--space-3xl);
+  }
+  .logo-letter, .logo-slash {
+    font-size: 3rem;
+    color: var(--black);
+    letter-spacing: -10px;
+    display: none;
+  }
+  .logo-initial, .logo-slash {
+    display: block;
+  }
+  
+  .logo-letter-bounce {
+    color: var(--theme-primary) !important;
+  }
+
+  .links-wrap {
+    flex-direction: column;
+    gap: 0;
+    height: fit-content;
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-2xl);
+  }
+  .links-wrap a {
+    margin-left: 0;
+  }
+  .links-wrap a:not(:last-of-type) {
+    margin-bottom: var(--space-xl);
+  }
+
   /* .logoLink > span:last-child {
     border: 0;
     clip: rect(0, 0, 0, 0);

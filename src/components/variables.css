@@ -104,6 +104,10 @@
   --size-gutter: var(--space-2xl);
   --size-logo: var(--space-2xl);
   --size-max-width: 80rem;
+
+  /* nav */
+  --nav-height: 16rem;
+ 
 }
 
 @media (min-width: 480px) {
@@ -118,5 +122,6 @@
     --text-title: var(--text-4xl);
     --text-prose-tracking: -0.014em;
     --text-prose: var(--text-lg);
+    --nav-height-mobile: 4rem;
   }
 }
