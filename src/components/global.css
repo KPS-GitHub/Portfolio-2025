@@ -107,6 +107,10 @@ img {
   border-radius: var(--radius-lg);
 }
 
+.block-accent-green.gatsby-image-wrapper, .block-accent-pink.gatsby-image-wrapper, .block-accent-blue.gatsby-image-wrapper {
+  overflow: visible;
+}
+
 .block-accent-green::before, .block-accent-pink::before, .block-accent-blue::before {
   content: '';
   display: block;
