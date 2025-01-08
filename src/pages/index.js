@@ -28,9 +28,6 @@ class RootIndex extends React.Component {
         <div className='container'>
           <FadeIn delay={500}>
             <AboutMeSec me={me} />
-            <AboutMeSec me={me} />
-            <AboutMeSec me={me} />
-            <AboutMeSec me={me} />
           </FadeIn>
           <br />
           <br />
