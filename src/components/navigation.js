@@ -32,6 +32,8 @@ const Navigation = ({ me }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // nav is always fixed at top
   const fixedStyles = {
     position: 'fixed',
     top: 0,
@@ -40,9 +42,6 @@ const Navigation = ({ me }) => {
     zIndex: 100,
     transition: 'all 0.3s ease',
     background: 'linear-gradient(to bottom, white 80%, transparent 100%)',
-  };
-  const compactStyles = {
-    
   };
 
   // bounce animation
@@ -59,8 +58,7 @@ const Navigation = ({ me }) => {
 
   return (
     <div className={`container`} style={fixedStyles}>
-      <div className={`${styles.navOuterWrap}`} style={isCompact ? compactStyles : {}}>
-        <div className={`${styles.navInnerWrap}`}>
+      <div className={`${styles.navOuterWrap} ${isCompact ? styles.compactNav : ''}`}>
           <FadeIn delay={200} order='random'>
             <nav role="navigation" className={styles.container} aria-label="Main">
               {/* logo */}
@@ -100,7 +98,6 @@ const Navigation = ({ me }) => {
             </nav>
           </FadeIn>
         </div>
-      </div>
     </div>
   )
 }

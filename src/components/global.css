@@ -37,13 +37,7 @@ body {
 }
 
 main {
-  margin-top: var(--nav-height);
-}
-
-@media screen and (max-width: 991px) {
-  main {
-    margin-top: var(--nav-height-mobile);
-  }
+  margin-top: var(--nav-height); /* note: defined in the local nav css file, not variables.css */
 }
 
 /* simple fade in on page load */
