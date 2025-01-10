@@ -20,7 +20,7 @@ const Navigation = ({ me }) => {
   // compact nav on scroll
   const [isCompact, setIsCompact] = useState(false);
   useEffect(() => {
-    const isSmallScreen = window.innerWidth < 410;
+    const isSmallScreen = window.innerWidth < 768;
     setIsCompact(isSmallScreen);
   
     const handleScroll = () => {

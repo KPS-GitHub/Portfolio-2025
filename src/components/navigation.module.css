@@ -170,7 +170,7 @@ nav {
 .compact-nav .logo {
   font-size: 2rem;
   letter-spacing: -1px;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-lg) var(--space-sm) var(--space-md);
 }
 .compact-nav .logo-letter {
   font-size: 0;

@@ -30,3 +30,11 @@
         padding: 20px;
     }
 }
+
+@media screen and (max-width: 575px) {
+    .about-image {
+        max-width: 10rem;
+        margin-top: -7rem;
+        margin-bottom: 1rem;
+    }
+}
