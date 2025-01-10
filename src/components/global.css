@@ -36,6 +36,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+main {
+  margin-top: var(--nav-height); /* note: defined in the local nav css file, not variables.css */
+}
+
 /* simple fade in on page load */
 /* body {
   animation: fadeIn 1s ease-in-out;
@@ -103,8 +107,13 @@ img {
 
 .block-accent-green, .block-accent-pink, .block-accent-blue {
   position: relative;
+  right: .5rem; /* shift the element to the left by half the width as the block accent to maintain horizontal page balance */
   background-color: white;
   border-radius: var(--radius-lg);
+}
+
+.block-accent-green.gatsby-image-wrapper, .block-accent-pink.gatsby-image-wrapper, .block-accent-blue.gatsby-image-wrapper {
+  overflow: visible;
 }
 
 .block-accent-green::before, .block-accent-pink::before, .block-accent-blue::before {
@@ -122,6 +131,9 @@ img {
 .accent-flip.block-accent-green::before, .accent-flip.block-accent-pink::before, .accent-flip.block-accent-blue::before {
   top: -1rem;
   left: -1rem;
+}
+.hide-accent::before {
+  display: none;
 }
 
 /* .block-accent-green::before {

@@ -1,21 +1,36 @@
 :root {
-  --nav-height: 8rem;
-  --nav-height-fixed: 6rem;
   --bounce-color: var(--theme-primary);
+  --nav-height: 14rem;
 }
 
-.container {
-  display: block;
-  position: sticky;
+
+.fixed-nav {
+  position: fixed;
   top: 0;
-  display: flex;
-  justify-content: space-between;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  transition: all 0.3s ease;
+  background: linear-gradient(to bottom, white 80%, transparent 100%);
+}
+
+.nav-outer-wrap {
+  position: relative;
+  top: 0;
+  padding: 1rem 0;
   max-width: var(--size-max-width);
   align-items: center;
-  margin: 0 auto;
-  padding: var(--space-3xl) 0;
-  height: var(--nav-height) !important;
+  transition: var(--transition-all-03);
   margin-bottom: 4rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--size-max-width);
+  padding-left: 1rem;
+  transition: var(--transition-all-03);
 }
 
 .navigation {
@@ -23,7 +38,6 @@
   list-style: none;
   margin: 0;
   gap: var(--space-xl);
-  /* text-shadow: 2px 2px black; */
 }
 
 .navigation-item {
@@ -43,16 +57,16 @@
   color: var(--primary);
 }
 
-.logo {
+.logo-link, .logo-link:hover {
   display: block;
+  text-decoration: none;
+}
+
+.logo {
   font-family: var(--font-sans);
   font-size: 4rem;
   letter-spacing: -4px;
   padding: var(--space-xl) var(--space-3xl);
-}
-
-.logoLink, .logoLink:hover {
-  text-decoration: none;
 }
 
 .logo-letter {
@@ -80,6 +94,12 @@
   font-weight: var(--bold);
 }
 
+.logo-slash {
+  display: none;
+  color: var(--black);
+  font-weight: var(--bold);
+}
+
 
 .links-wrap {
   display: flex;
@@ -92,8 +112,9 @@
 .nav-icon-link {
   /* position: relative;
   bottom: 0; */
-  display: block;
+  display: flex;
   margin-left: 2rem;
+  margin-bottom: 1rem;
   transform: scale(1);
   color: var(--black);
   text-shadow: 0 0 0 var(--black);
@@ -123,16 +144,132 @@
   transition: var(--transition-all-02);
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: white; /* Adjust as needed */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+
+
+/* ============================================== */
+/* ============= Compact Nav ================== */
+/* ============================================== */
+
+.compact-nav {
+  /* border-bottom: 1px solid var(--black); */
+  background: linear-gradient(to bottom, white 80%, transparent 100%);
 }
 
-@media (max-width: 767px) {
+.compact-nav .nav-outer-wrap {
+  padding: .25rem 0 1.5rem 0;
+  transition: var(--transition-all-03);
+  margin-bottom: 0;
+}
+
+.compact-nav nav {
+  max-width: var(--size-max-width);
+  padding-left: 3rem;
+  transition: var(--transition-all-03);
+}
+
+.compact-nav .logo {
+  font-size: 2rem;
+  letter-spacing: -1px;
+  padding: var(--space-sm) var(--space-lg) var(--space-sm) var(--space-md);
+}
+.compact-nav .logo-letter {
+  font-size: 0;
+  /* display: none; */
+}
+.compact-nav .logo-initial, .compact-nav .logo-slash {
+  font-size: 2rem;
+  display: block;
+}
+ 
+.compact-nav .nav-icon-link {
+  margin-bottom: 0;
+}
+
+.compact-nav .links-wrap {
+  margin-right: 1rem;
+}
+
+/* ============================================== */
+/* ============= End Compact Nav ================== */
+/* ============================================== */
+
+
+
+@media (min-width: 769px) and (max-width: 991px) {
+  :root {
+    --nav-height: 16rem;
+  }
+  .links-wrap {
+    flex-direction: column;
+    gap: 0;
+    height: fit-content;
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-2xl);
+  }
+  .links-wrap a {
+    margin-left: 0;
+  }
+  .links-wrap a:not(:last-of-type) {
+    margin-bottom: var(--space-xl);
+  }
+
+  .compact-nav .logo-initial, .compact-nav .logo-slash {
+    font-size: 3rem;
+  }
+  .compact-nav .links-wrap {
+    flex-direction: row;
+  }
+  .compact-nav .links-wrap a {
+    margin-left: 1.5rem;
+  }
+  .compact-nav .links-wrap a:not(:last-of-type) {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-outer-wrap {
+    padding: 0rem 1rem 2rem 1rem;
+  }
+
+  .logo {
+    padding: var(--space-md) var(--space-3xl);
+  }
+  .logo-letter, .logo-slash {
+    font-size: 3rem;
+    letter-spacing: -7px;
+    display: none;
+  }
+  .logo-initial, .logo-slash {
+    display: block;
+  }
+  .logo-slash {
+    letter-spacing: -10px;
+  }
+  
+  .logo-letter-bounce {
+    color: var(--theme-primary) !important;
+  }
+
+  .nav-icon-link {
+    margin-left: 0rem;
+  }
+
+  .compact-nav .logo-initial, .compact-nav .logo-slash {
+    font-size: 2.5rem;
+  }
+  .compact-nav .logo-initial {
+    color: var(--theme-primary);
+    letter-spacing: -2px;
+  }
+   .compact-nav .logo-slash {
+    letter-spacing: -4px;
+  }
+  /* .compact-nav . {
+
+  } */
+
+  
+
   /* .logoLink > span:last-child {
     border: 0;
     clip: rect(0, 0, 0, 0);
@@ -147,3 +284,81 @@
 }
 
 
+
+
+@media (max-width: 555px) {
+  .links-wrap {
+    gap: 0;
+    height: fit-content;
+    padding: var(--space-xl) var(--space-xl) var(--space-lg) var(--space-2xl);
+  }
+  .links-wrap a {
+    margin-left: 1.5rem;
+  }
+  .link-icon {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  .links-wrap a:last-of-type .link-icon {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
+
+
+@media (max-width: 460px) {
+  .logo {
+    padding: 0 2rem;
+  }
+  .logo-letter, .logo-slash {
+    font-size: 2.5rem;
+    letter-spacing: -10px;
+    margin-bottom: 0;
+  }
+
+  /* .links-wrap {
+    flex-direction: column;
+    gap: 0;
+    height: fit-content;
+    padding: var(--space-xl) var(--space-xl) var(--space-xl) var(--space-2xl);
+    margin-right: 1rem;
+  }
+  .links-wrap a {
+    margin-left: 0;
+  }
+  .links-wrap a:not(:last-of-type) {
+    margin-bottom: var(--space-md);
+  } */
+}
+
+@media (max-width: 410px) {
+  .nav-outer-wrap {
+    padding: 0rem 0rem 2rem 0rem;
+  }
+
+  .links-wrap {
+    /* flex-direction: column; */
+    gap: 0;
+    height: fit-content;
+    padding: var(--space-xl) var(--space-xl) var(--space-lg) var(--space-2xl);
+    margin-right: 1rem;
+  }
+  .links-wrap a {
+    margin-left: 15px;
+  }
+  .link-icon {
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+  .links-wrap a:not(:last-of-type) {
+    margin-bottom: 3px;
+  }
+  .links-wrap a:last-of-type {
+    margin-bottom: 0;
+    /* margin-left: 11px; */
+  }
+  .links-wrap a:last-of-type .link-icon {
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
