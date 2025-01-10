@@ -137,6 +137,39 @@ nav {
 
 
 
+/* ============================================== */
+/* ============= Compact Nav ================== */
+/* ============================================== */
+
+.compact-nav { /* NOTE: this class is applied to the .nav-outer-wrap div */
+  padding: .25rem 0;
+  transition: var(--transition-all-03);
+}
+
+.compact-nav .logo {
+  font-size: 2rem;
+  letter-spacing: -1px;
+  padding: var(--space-sm) var(--space-md);
+}
+
+.hide-accent::before {
+  display: none !important;
+  opacity: 0;
+}
+/* .compact-nav . {
+  
+} */
+ 
+/* .compact-nav . {
+  
+} */
+
+/* ============================================== */
+/* ============= End Compact Nav ================== */
+/* ============================================== */
+
+
+
 @media (min-width: 769px) and (max-width: 991px) {
   :root {
     --nav-height: 16rem;

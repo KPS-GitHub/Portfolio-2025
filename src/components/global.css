@@ -132,6 +132,9 @@ img {
   top: -1rem;
   left: -1rem;
 }
+.hide-accent::before {
+  display: none;
+}
 
 /* .block-accent-green::before {
   animation: fadeInBackgroundGreen 1s ease-in-out; 

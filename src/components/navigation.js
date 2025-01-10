@@ -21,12 +21,23 @@ const Navigation = ({ me }) => {
   const [isCompact, setIsCompact] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
+      const blockAccentElements = document.querySelectorAll('.block-accent-target-class');
       if (window.scrollY > 0) {
         setIsCompact(true);
+        if (blockAccentElements) {
+          blockAccentElements.forEach(blockAccentElement => {
+            blockAccentElement.classList.add('hide-accent');
+          });
+        }
       } else {
         setIsCompact(false);
-      }
-    };
+        if (blockAccentElements) {
+          blockAccentElements.forEach(blockAccentElement => {
+            blockAccentElement.classList.remove('hide-accent');
+          });
+        }
+      };
+    }
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -60,10 +71,10 @@ const Navigation = ({ me }) => {
     <div className={`container`} style={fixedStyles}>
       <div className={`${styles.navOuterWrap} ${isCompact ? styles.compactNav : ''}`}>
           <FadeIn delay={200} order='random'>
-            <nav role="navigation" className={styles.container} aria-label="Main">
+            <nav role="navigation" aria-label="Main">
               {/* logo */}
               <Link to="/"
-                className={`${styles.logoLink} block-accent-pink`}
+                className={`${styles.logoLink} block-accent-pink block-accent-target-class`}
               // className={styles.logoLink}
               >
                 <div className={`${styles.navigationItem} ${styles.logo}`}>
@@ -84,7 +95,7 @@ const Navigation = ({ me }) => {
                 </div>
               </Link>
               {/* links */}
-              <div className={`${styles.linksWrap} block-accent-green`}>
+              <div className={`${styles.linksWrap} block-accent-green block-accent-target-class`}>
                 {github && <Link to={`${github}`} target='_blank' rel="noreferrer" className={`${styles.navIconLink} ${styles.navigationItem}`}>
                   <FaGithub className={`${styles.linkIcon}`} />
                 </Link>}
