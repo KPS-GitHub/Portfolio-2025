@@ -20,40 +20,44 @@ const Navigation = ({ me }) => {
   // compact nav on scroll
   const [isCompact, setIsCompact] = useState(false);
   useEffect(() => {
+    const isSmallScreen = window.innerWidth < 410;
+    setIsCompact(isSmallScreen);
+  
     const handleScroll = () => {
       const blockAccentElements = document.querySelectorAll('.block-accent-target-class');
+      // Only update isCompact if we're not on a small screen
+      if (!isSmallScreen) {
+        setIsCompact(window.scrollY > 0);
+      }
+      
+      // Handle accent classes separately
       if (window.scrollY > 0) {
-        setIsCompact(true);
-        if (blockAccentElements) {
-          blockAccentElements.forEach(blockAccentElement => {
-            blockAccentElement.classList.add('hide-accent');
-          });
-        }
+        blockAccentElements.forEach(element => {
+          element.classList.add('hide-accent');
+        });
       } else {
-        setIsCompact(false);
-        if (blockAccentElements) {
-          blockAccentElements.forEach(blockAccentElement => {
-            blockAccentElement.classList.remove('hide-accent');
-          });
-        }
-      };
-    }
+        blockAccentElements.forEach(element => {
+          element.classList.remove('hide-accent');
+        });
+      }
+    };
+  
+    const handleResize = () => {
+      const isNowSmallScreen = window.innerWidth < 410;
+      if (isNowSmallScreen) {
+        setIsCompact(true);
+      } else {
+        setIsCompact(window.scrollY > 0);
+      }
+    };
+  
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  // nav is always fixed at top
-  const fixedStyles = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 100,
-    transition: 'all 0.3s ease',
-    background: 'linear-gradient(to bottom, white 80%, transparent 100%)',
-  };
 
   // bounce animation
   const [letters, setLetters] = useState([]);
@@ -68,8 +72,9 @@ const Navigation = ({ me }) => {
   useAddRemoveClassInSequence(links, styles.navIconLinkBounce, 5500, 200, 30000);
 
   return (
-    <div className={`container`} style={fixedStyles}>
-      <div className={`${styles.navOuterWrap} ${isCompact ? styles.compactNav : ''}`}>
+    <div className={`${styles.fixedNav} ${isCompact ? styles.compactNav : ''}`}>
+      <div className={`container`}>
+        <div className={`${styles.navOuterWrap}`}>
           <FadeIn delay={200} order='random'>
             <nav role="navigation" aria-label="Main">
               {/* logo */}
@@ -109,6 +114,7 @@ const Navigation = ({ me }) => {
             </nav>
           </FadeIn>
         </div>
+      </div>
     </div>
   )
 }
