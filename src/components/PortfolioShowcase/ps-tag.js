@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./portfolio-showcase-tag.module.css";
+import * as styles from "./ps-tag.module.css";
 
 const PortfolioShowcaseTag = ({ tag, index }) => {
     return (

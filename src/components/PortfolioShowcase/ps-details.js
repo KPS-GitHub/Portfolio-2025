@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./portfolio-showcase-details.module.css";
+import * as styles from "./ps-details.module.css";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { get } from "lodash";
 

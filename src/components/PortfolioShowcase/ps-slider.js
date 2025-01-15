@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Slider from '@ant-design/react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import PortfolioShowcaseSlide from './portfolio-showcase-slide';
-import PortfolioShowcaseTag from './portfolio-showcase-tag';
-import PortfolioShowcaseDetails from './portfolio-showcase-details';
+import PortfolioShowcaseSlide from './ps-slide';
+import PortfolioShowcaseTag from './ps-tag';
+import PortfolioShowcaseDetails from './ps-details';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import * as styles from './portfolio-showcase-slider.module.css';
+import * as styles from './ps-slider.module.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const PortfolioShowcaseSlider = ({ entries }) => {
