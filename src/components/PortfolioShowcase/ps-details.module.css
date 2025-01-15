@@ -1,16 +1,46 @@
 .details-wrap {
     position: absolute;
     /* top: 10%; */
-    height: 100%;
-    overflow-y: scroll;
+    height: var(--showcase-height);
+    /* height: 100%; */
 }
 .show {
     z-index: 1;
 }
 
-.body {
-    
+.details-title {
+    /* height: 12%; */
+    height: fit-content;
+    overflow: hidden;
 }
+
+.body {
+    overflow-y: scroll;
+    /* height: calc(var(--showcase-height) - 25%); */
+    padding: 0 1rem 0 0;
+    margin-top: 1rem;
+}
+.body::-webkit-scrollbar {
+    width: 12px;
+}
+.body::-webkit-scrollbar-thumb {
+    background: var(--theme-accent);
+    border-radius: 6px;
+}
+/* WebKit browsers (Chrome, Safari) */
+/* .body::-webkit-scrollbar {
+    width: 12px;
+}
+
+.body::-webkit-scrollbar-track {
+    background: var(--theme-primary);
+    border-radius: 6px;
+}
+
+.body::-webkit-scrollbar-thumb {
+    background: var(--theme-accent);
+    border-radius: 6px;
+} */
 
 .close-button {
     margin-bottom: 15px;

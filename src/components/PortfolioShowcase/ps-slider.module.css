@@ -1,3 +1,7 @@
+.slider-wrap {
+  height: var(--slider-height);
+}
+
 .fade-out {
   opacity: 0;
   transition: var(--transition-all-03);
@@ -19,7 +23,7 @@
 .details-col-fade-in {
   position: relative;
   z-index: 1;
-  height: 100%;
+  height: var(--slider-height);
   opacity: 1;
   transition: var(--transition-all-03);
 }
@@ -43,6 +47,11 @@
   flex-wrap: wrap;
   margin-top: var(--space-md);
   transition: var(--transition-all-05);
+}
+
+
+.slider-right-wrap {
+  height: var(--showcase-height);
 }
 
 .slider-buttons-wrap {

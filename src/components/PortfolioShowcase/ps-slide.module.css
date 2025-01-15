@@ -1,3 +1,7 @@
+.slide-outer-wrap {
+    height: calc(var(--showcase-height) / 3);
+}
+
 .slide-wrap {
     position: relative;
     display: flex;

@@ -1,6 +1,7 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Kennan Smith - Web Developer",
+  "description": "Professional Web Developer Kennan Smith's portfolio site",
+  "favicon": "./static/favicon.ico",
   "keywords": [
     "contentful",
     "gatsby",
