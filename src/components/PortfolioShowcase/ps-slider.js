@@ -53,7 +53,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     centerMode: true,
     slidesToShow: 3,
     infinite: true,
-    centerPadding: "75px",
+    centerPadding: "50px",
     speed: 1000,
     focusOnSelect: true,
     vertical: true,
