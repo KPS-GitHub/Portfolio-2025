@@ -21,10 +21,21 @@ const PortfolioShowcaseDetails = ({ entry, index, setShowDetails }) => {
     }
   }, []);
 
+  const titleLength = title.length;
+
+  const calculateFontSize = (length) => {
+    if (length <= 10) return '2rem';
+    if (length <= 20) return '1.75rem';
+    if (length <= 30) return '1.5rem';
+    return '1.25rem';
+  };
+
+  const fontSize = calculateFontSize(titleLength);
+
   return (
     <div ref={detailsWrapRef} className={styles.detailsWrap}>
       <button onClick={() => setShowDetails(false)} className={`button-clean ${styles.closeButton}`}>{`<-- Close Details`}</button>
-      <h2 ref={detailsTitleRef} className={styles.detailsTitle}>{title}</h2>
+      <h2 style={{ fontSize }} ref={detailsTitleRef} className={styles.detailsTitle}>{title}</h2>
       <div ref={bodyRef} className={styles.body} style={{ height: bodyHeight }}>
         {renderRichText(body)}
       </div>
