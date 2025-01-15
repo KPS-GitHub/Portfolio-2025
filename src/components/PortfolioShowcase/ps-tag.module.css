@@ -5,9 +5,19 @@
     width: fit-content;
     border-radius: var(--radius-lg);
     color: var(--text-color);
-    background-color: var(--tag-color);
+    background-color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
     border: 2px solid var(--black-fade-5);
     white-space: nowrap;
-    padding: var(--space-sm) var(--space-md);
+    padding: var(--space-md) var(--space-md);
+    text-align: center;
     /* box-shadow: var(--shadow); */ /* uncomment if/when tags are clickable */
+}
+.tag::before {
+    width: 102%;
+    height: 104%;
+}
+.tag:hover {
+    cursor: default;
 }

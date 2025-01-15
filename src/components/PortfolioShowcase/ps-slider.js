@@ -53,7 +53,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     centerMode: true,
     slidesToShow: 3,
     infinite: true,
-    centerPadding: "50px",
+    centerPadding: "40px",
     speed: 1000,
     focusOnSelect: true,
     vertical: true,
@@ -86,7 +86,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       <div className="row">
         <div className={`col-md-6 ${styles.imageCol}`}>
           <div className={styles.previewImageWrap}>
-            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
+            <GatsbyImage objectFit='contain' className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`}  image={currImg.gatsbyImage} alt={currImg.title} />
             <div className={styles.sliderButtonsWrap}>
               <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
               <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>

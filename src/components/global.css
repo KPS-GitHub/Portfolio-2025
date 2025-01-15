@@ -132,6 +132,10 @@ img {
   top: -1rem;
   left: -1rem;
 }
+.block-accent-mini::before {
+  top: 0.5rem;
+  left: 0.5rem;
+}
 .hide-accent::before {
   display: none;
 }
