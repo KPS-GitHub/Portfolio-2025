@@ -8,7 +8,7 @@
 .section-title {
   width: fit-content;
   padding: 1rem 2rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .fade-out {
@@ -27,7 +27,7 @@
   z-index: -1;
   height: 0;
   opacity: 0;
-  transform: translateY(2rem);
+  transform: translateY(-2rem);
   transition: var(--transition-all-03);
 }
 .details-col-fade-in {
@@ -96,6 +96,16 @@
   background: linear-gradient(-90deg, black, transparent);
 }
 
+@media screen and (max-width: 991px) {
+  .details-col-fade-in {
+    position: relative;
+    transform: translateY(0);
+    z-index: 1;
+    height: 20vh;
+    opacity: 1;
+    transition: var(--transition-all-03);
+  }
+}
 @media screen and (min-width: 769px) {
   .slider-buttons-wrap {
     display: none;
@@ -104,16 +114,29 @@
 @media screen and (max-width: 768px) {
   .slider-wrap {
     position: relative;
-    top: 10rem;
+    margin-top: -10vh;
+    transition: var(--transition-all-03);
+  }
+  .slider-right-wrap {
+    margin-top: 1rem;
+  }
+  .slider-wrap-details-show {
+    margin-top: 40vh;
+    transition: var(--transition-all-03);
   }
   .image-col {
     margin-bottom: 1rem;
+    /* Add transition for smooth height adjustment */
+    transition: var(--transition-all-03);
+  }
+  .image-col.details-shown {
+    margin-top: 20vh; /* Match details height plus some spacing */
   }
   .preview-image-wrap {
     height: 25vh;
   }
   .slider-right-wrap {
-    height: 10rem;
+    height: fit-content;
   }
   .slider-buttons-wrap {
     z-index: 0;
@@ -138,4 +161,20 @@
     display: flex;
     justify-content: space-between;
   } */
+  .details-col-fade-in {
+    position: relative;
+    transform: translateY(0);
+    z-index: 1;
+    height: 20vh;
+    opacity: 1;
+    transition: var(--transition-all-03);
+  }
+  .details-col-hide {
+    height: 0;
+  }
+  .details-col-show {
+    height: 75vh;
+    transition: var(--transition-all-03);
+    margin-bottom: 1rem;
+  }
 }

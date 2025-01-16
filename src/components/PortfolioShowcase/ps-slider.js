@@ -94,7 +94,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   };
 
   return (
-    <div className={`container ${styles.sliderWrap}`}>
+    <div className={`container ${styles.sliderWrap} ${showDetails ? styles.sliderWrapDetailsShow : ''}`}>
       <div className='row'>
         <div className='col-md-12'>
           <h2 className={`${styles.sectionTitle} block-accent-pink`}>Portfolio</h2>
@@ -115,21 +115,15 @@ const PortfolioShowcaseSlider = ({ entries }) => {
             })}
           </div>
         </div>
-        <div className="col-md-1"></div>
-        <div className={`col-md-5 order-md-2 order-1 block-accent-blue hide-accent-mobile ${styles.sliderRightWrap}`}>
-          {/* <div className={`${styles.mobileSliderAndButtons}`}> */}
+        <div className="col-md-1 order-md-2 order-3"></div>
+        <div className={`col-md-5 order-md-3 order-1 block-accent-blue hide-accent-mobile ${styles.sliderRightWrap}`}>
             <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
             <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
               {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
             </Slider>
             <button className={`${styles.sliderButton} ${styles.sliderButtonNext} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
-          {/* </div> */}
-          {/* <div className={`${styles.sliderButtonsWrap} hide-on-desktop`}>
-            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
-            <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
-          </div> */}
-          <div className={detailsFadeClass}>
-            <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} setShowDetails={setShowDetails} />
+          <div className={`${detailsFadeClass} ${showDetails ? styles.detailsColShow : styles.detailsColHide}`}>
+            <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} showDetails={showDetails} setShowDetails={setShowDetails} />
           </div>
         </div>
       </div>

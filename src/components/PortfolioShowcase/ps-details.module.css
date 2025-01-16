@@ -1,10 +1,12 @@
 .details-wrap {
     position: absolute;
     /* top: 10%; */
-    height: var(--showcase-height);
+    height: 0;
     /* height: 100%; */
+    transition: var(--transition-all-03);
 }
-.show {
+.details-wrap-show {
+    height: var(--showcase-height);
     z-index: 1;
 }
 
@@ -57,9 +59,13 @@
 } */
 
 @media screen and (max-width: 768px) {
-    .details-wrap {
-        position: relative;
-        height: fit-content;
-        overflow-y: scroll;
+    .details-wrap-show {
+        position: absolute;
+        height: 50vh;
+        width: 100%;
+        left: 0;
+        padding: 1rem;
+        background: var(--background); /* Add background to ensure content below isn't visible during transition */
+        z-index: 2;
     }
 }
