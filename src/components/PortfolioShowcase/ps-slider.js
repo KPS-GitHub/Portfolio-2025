@@ -57,6 +57,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     centerPadding: "40px",
     speed: 1000,
     focusOnSelect: true,
+    draggable: true,
     vertical: true,
     beforeChange: (current, next) => {
       if (current === next) return;
@@ -70,14 +71,23 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       {
         breakpoint: 768,
         settings: {
-          dots: true,
-          arrows: true,
-          buttons: true,
-          slidesToShow: 1,
+          buttons: false,
+          slidesToShow: 3,
           slidesToScroll: 1,
           centerPadding: "0px",
           vertical: false,
-          focusOnSelect: false
+          focusOnSelect: true
+        }
+      },
+      {
+        breakpoint: 550,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerPadding: "-100px",
+          vertical: false,
+          focusOnSelect: false,
+          centerMode: true
         }
       }
     ]
@@ -85,11 +95,16 @@ const PortfolioShowcaseSlider = ({ entries }) => {
 
   return (
     <div className={`container ${styles.sliderWrap}`}>
+      <div className='row'>
+        <div className='col-md-12'>
+          <h2 className={`${styles.sectionTitle} block-accent-pink`}>Portfolio</h2>
+        </div>
+      </div>
       <div className="row">
-        <div className={`col-md-6 ${styles.imageCol}`}>
+        <div className={`col-md-6 order-md-1 order-2 ${styles.imageCol}`}>
           <div className={styles.previewImageWrap}>
-            <GatsbyImage objectFit='contain' className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`}  image={currImg.gatsbyImage} alt={currImg.title} />
-            <div className={styles.sliderButtonsWrap}>
+            <GatsbyImage objectFit='contain' className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
+            <div className={`${styles.sliderButtonsWrap} hide-on-mobile`}>
               <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
               <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
             </div>
@@ -101,10 +116,18 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
         </div>
         <div className="col-md-1"></div>
-        <div className={`col-md-5 block-accent-blue ${styles.sliderRightWrap}`}>
-          <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
-            {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
-          </Slider>
+        <div className={`col-md-5 order-md-2 order-1 block-accent-blue hide-accent-mobile ${styles.sliderRightWrap}`}>
+          {/* <div className={`${styles.mobileSliderAndButtons}`}> */}
+            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
+            <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
+              {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
+            </Slider>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonNext} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
+          {/* </div> */}
+          {/* <div className={`${styles.sliderButtonsWrap} hide-on-desktop`}>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
+          </div> */}
           <div className={detailsFadeClass}>
             <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} setShowDetails={setShowDetails} />
           </div>

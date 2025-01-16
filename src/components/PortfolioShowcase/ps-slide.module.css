@@ -37,6 +37,7 @@
 .view-details-button {
     display: none;
     transition: all 0.3s ease-in-out;
+    white-space: nowrap;
 }
 
 .view-details-button:hover {
@@ -62,3 +63,13 @@
 .view-details-button.pink-border:hover {
     border-bottom: 3px solid var(--theme-accent);
 } */
+
+@media (max-width: 768px) {
+    .slide-outer-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .view-details-button {}
+}

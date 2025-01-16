@@ -101,6 +101,20 @@ img {
   border-radius: var(--radius-lg);
 }
 
+
+@media (max-width: 768px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+@media (min-width: 769px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+
+
 .gatsby-image-wrapper {
   overflow: visible;
 }
@@ -143,6 +157,12 @@ img {
 .hide-accent::before {
   display: none;
 }
+@media (max-width: 768px) {
+  .hide-accent-mobile::before {
+    display: none;
+  }
+}
+
 
 /* .block-accent-green::before {
   animation: fadeInBackgroundGreen 1s ease-in-out; 
