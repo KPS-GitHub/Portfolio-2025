@@ -102,6 +102,10 @@ img {
 }
 
 
+.hide {
+  display: none !important;
+}
+
 @media (max-width: 768px) {
   .hide-on-mobile {
     display: none !important;

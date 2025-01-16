@@ -45,6 +45,7 @@
   height: 85%;
   /* background: var(--black-fade-3); */
   border-radius: var(--radius-lg);
+  cursor: pointer;
 }
 
 .gatsby-image, .gatsby-image img {

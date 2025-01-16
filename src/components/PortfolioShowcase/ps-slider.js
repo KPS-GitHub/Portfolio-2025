@@ -102,7 +102,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       </div>
       <div className="row">
         <div className={`col-md-6 order-md-1 order-2 ${styles.imageCol}`}>
-          <div className={styles.previewImageWrap}>
+          <div className={styles.previewImageWrap} onClick={() => setShowDetails(!showDetails)} aria-label='show details'>
             <GatsbyImage objectFit='contain' className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
             <div className={`${styles.sliderButtonsWrap} hide-on-mobile`}>
               <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
@@ -117,11 +117,11 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         </div>
         <div className="col-md-1 order-md-2 order-3"></div>
         <div className={`col-md-5 order-md-3 order-1 block-accent-blue hide-accent-mobile ${styles.sliderRightWrap}`}>
-            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
             <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
               {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
             </Slider>
-            <button className={`${styles.sliderButton} ${styles.sliderButtonNext} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonNext} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
           <div className={`${detailsFadeClass} ${showDetails ? styles.detailsColShow : styles.detailsColHide}`}>
             <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} showDetails={showDetails} setShowDetails={setShowDetails} />
           </div>
