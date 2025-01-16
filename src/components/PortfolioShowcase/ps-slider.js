@@ -49,6 +49,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   // react-slick Slider settings
   const settings = {
     dots: false,
+    arrows: false,
     className: "center",
     centerMode: true,
     slidesToShow: 3,
@@ -70,6 +71,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         breakpoint: 768,
         settings: {
           dots: true,
+          arrows: true,
           buttons: true,
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -99,7 +101,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
         </div>
         <div className="col-md-1"></div>
-        <div className={`col-md-4 block-accent-blue ${styles.sliderRightWrap}`}>
+        <div className={`col-md-5 block-accent-blue ${styles.sliderRightWrap}`}>
           <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
             {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
           </Slider>

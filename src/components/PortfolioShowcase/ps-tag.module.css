@@ -12,12 +12,13 @@
     white-space: nowrap;
     padding: var(--space-md) var(--space-md);
     text-align: center;
-    /* box-shadow: var(--shadow); */ /* uncomment if/when tags are clickable */
+    /* margin-right: 1rem; */
+    margin-bottom: 1rem;
 }
 .tag::before {
     width: 102%;
     height: 104%;
 }
 .tag:hover {
-    cursor: default;
+    cursor: auto;
 }
