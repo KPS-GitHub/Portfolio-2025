@@ -46,7 +46,7 @@
 .current-slide .view-details-button {
     display: block;
     position: absolute;
-    bottom: -1px;
+    bottom: -1rem;
     background: var(--black-fade-05);
 }
 .current-slide:hover .view-details-button {

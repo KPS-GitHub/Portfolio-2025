@@ -110,6 +110,7 @@ img {
   right: .5rem; /* shift the element to the left by half the width as the block accent to maintain horizontal page balance */
   background-color: white;
   border-radius: var(--radius-lg);
+  border: 2px solid black;
 }
 
 .block-accent-green.gatsby-image-wrapper, .block-accent-pink.gatsby-image-wrapper, .block-accent-blue.gatsby-image-wrapper {
@@ -135,6 +136,9 @@ img {
 .block-accent-mini::before {
   top: 0.5rem;
   left: 0.5rem;
+}
+.hide-accent {
+  border: none;
 }
 .hide-accent::before {
   display: none;
