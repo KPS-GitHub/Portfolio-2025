@@ -13,16 +13,19 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
+      if (typeof window !== 'undefined') {
+        setWindowDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
 
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+        window.addEventListener('resize', handleResize);
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+
+      };
+    }
   }, []);
 
   const calculateFontSize = (length, width, height) => {
