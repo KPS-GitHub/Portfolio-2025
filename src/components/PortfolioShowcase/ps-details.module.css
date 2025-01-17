@@ -18,17 +18,17 @@
 
 .body {
     overflow-y: scroll;
-    /* height: calc(var(--showcase-height) - 25%); */
+    height: calc(var(--showcase-height) - 18vh);
     padding: 0 1rem 1rem 0;
     margin-top: 1rem;
 }
 .body::after {
     content: '';
     position: absolute;
-    bottom: 4vh;
+    bottom: -5px;
     left: 0;
     width: 96%;
-    height: 3rem;
+    height: 4rem;
     background: linear-gradient(to bottom, transparent, white);
     pointer-events: none; /* Ensure the pseudo-element does not interfere with scrolling */
 }
