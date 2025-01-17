@@ -11,3 +11,16 @@
   overflow: hidden;
   padding-bottom: 2rem;
 }
+
+@media (max-width: 991px) {
+  .wrap {
+    padding-top: 1rem;
+    height: calc(var(--showcase-height) + 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    height: calc(var(--showcase-height) + 10rem);
+  }
+}

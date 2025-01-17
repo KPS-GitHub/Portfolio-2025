@@ -72,6 +72,15 @@
     border-bottom: 3px solid var(--theme-secondary-accent);
 } */
 
+@media screen and (max-width: 991px) {
+    .body::after {
+        bottom: 0px;
+        left: 0;
+        width: 96%;
+        height: 3rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .details-wrap-show {
         position: absolute;
@@ -81,5 +90,11 @@
         padding: 1rem;
         background: var(--background); /* Add background to ensure content below isn't visible during transition */
         z-index: 2;
+    }
+    .body::after {
+        bottom: -50px;
+        left: 0;
+        width: 93%;
+        height: 3rem;
     }
 }
