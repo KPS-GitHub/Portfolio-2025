@@ -31,12 +31,12 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
 
   }, []);
 
-  const calculateFontSize = (length, width, height) => {
+  const calculateFontSize = (length, windowWidth, windowHeight) => {
     let baseFontSize = 2.5 - (length / 50); // base font size is 2.5rem, but decreases as title length increases
 
-    if (width <= 555 || height <= 300) return `${baseFontSize - 1.75}rem`;
-    if (width <= 767 || height <= 400) return `${baseFontSize - 1.5}rem`;
-    if (width <= 991 || height <= 700) return `${baseFontSize - 1}rem`;
+    if (windowWidth <= 355 || windowHeight <= 300) return `${baseFontSize - 1}rem`;
+    if (windowWidth <= 768 || windowHeight <= 400) return `${baseFontSize - .75}rem`;
+    if (windowWidth <= 991 || windowHeight <= 700) return `${baseFontSize - .5}rem`;
     return `${baseFontSize}rem`;
   };
 

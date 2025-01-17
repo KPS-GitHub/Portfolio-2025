@@ -92,7 +92,7 @@
         z-index: 2;
     }
     .body::after {
-        bottom: -50px;
+        bottom: -60px;
         left: 0;
         width: 93%;
         height: 3rem;

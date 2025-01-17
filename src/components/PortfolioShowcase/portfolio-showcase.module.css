@@ -14,13 +14,16 @@
 
 @media (max-width: 991px) {
   .wrap {
+    align-items: flex-start;
+    height: calc(var(--showcase-height) + 15rem);
     padding-top: 1rem;
-    height: calc(var(--showcase-height) + 1rem);
+    overflow: visible;
   }
 }
 
 @media (max-width: 768px) {
   .wrap {
-    height: calc(var(--showcase-height) + 10rem);
+    height: calc(var(--showcase-height) + 20rem);
+    padding-top: 4rem;
   }
 }

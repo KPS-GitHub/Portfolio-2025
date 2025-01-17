@@ -87,11 +87,11 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         }
       },
       {
-        breakpoint: 550,
+        breakpoint: 555,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          centerPadding: "-100px",
+          centerPadding: "0px",
           vertical: false,
           focusOnSelect: false,
           centerMode: true
