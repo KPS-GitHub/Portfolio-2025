@@ -26,15 +26,15 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-    
+
   }, []);
 
   const calculateFontSize = (length, width, height) => {
     let baseFontSize;
     if (length <= 10) baseFontSize = 3;
-    else if (length <= 20) baseFontSize = 2.75;
-    else if (length <= 30) baseFontSize = 2.5;
-    else baseFontSize = 2.25;
+    else if (length <= 20) baseFontSize = 2.9;
+    else if (length <= 30) baseFontSize = 2.8;
+    else baseFontSize = 2.5;
 
     if (width <= 555 || height <= 300) return `${baseFontSize - 1.75}rem`;
     if (width <= 767 || height <= 400) return `${baseFontSize - 1.5}rem`;

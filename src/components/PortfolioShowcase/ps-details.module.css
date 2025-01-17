@@ -25,9 +25,9 @@
 .body::after {
     content: '';
     position: absolute;
-    bottom: -20vh;
+    bottom: 5vh;
     left: 0;
-    width: 93%;
+    width: 96%;
     height: 3rem;
     background: linear-gradient(to bottom, transparent, white);
     pointer-events: none; /* Ensure the pseudo-element does not interfere with scrolling */

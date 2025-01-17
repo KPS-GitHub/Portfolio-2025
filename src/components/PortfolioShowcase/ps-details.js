@@ -10,7 +10,7 @@ const PortfolioShowcaseDetails = ({ entry, index, showDetails, setShowDetails })
   const detailsWrapRef = useRef(null);
   const detailsTitleRef = useRef(null);
   const bodyRef = useRef(null);
-  const [bodyHeight, setBodyHeight] = useState('50vh');
+  const [bodyHeight, setBodyHeight] = useState('45vh');
 
   useEffect(() => {
     if (detailsWrapRef.current && detailsTitleRef.current && bodyRef.current) {

@@ -32,7 +32,7 @@
 }
 .details-col-fade-in {
   position: relative;
-  transform: translateY(14px);
+  transform: translateY(-8px);
   z-index: 1;
   height: var(--slider-height);
   opacity: 1;
