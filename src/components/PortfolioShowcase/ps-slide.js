@@ -6,6 +6,7 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
   const title = get(entry, 'title', null);
   const titleLength = title.length;
 
+  // Note: need to check that window is defined before using it so that the site can be rendered server-side
   const [windowDimensions, setWindowDimensions] = useState({
     width: typeof window !== 'undefined' ? window.innerWidth : 0,
     height: typeof window !== 'undefined' ? window.innerHeight : 0,
@@ -18,14 +19,14 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
           width: window.innerWidth,
           height: window.innerHeight,
         });
-
-        window.addEventListener('resize', handleResize);
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-
       };
     }
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+    
   }, []);
 
   const calculateFontSize = (length, width, height) => {
