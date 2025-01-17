@@ -27,7 +27,7 @@
   z-index: -1;
   height: 0;
   opacity: 0;
-  transform: translateY(-2rem);
+  transform: translateY(2rem);
   transition: var(--transition-all-03);
 }
 .details-col-fade-in {

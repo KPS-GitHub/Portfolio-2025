@@ -102,7 +102,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
 
   return (
     <div className={`container ${styles.sliderWrap} ${showDetails ? styles.sliderWrapDetailsShow : ''}`}>
-      <div className='row'>
+      <div className='row hide-on-desktop'>
         <div className='col-md-12'>
           <h2 className={`${styles.sectionTitle} block-accent-pink`}>Portfolio</h2>
         </div>
