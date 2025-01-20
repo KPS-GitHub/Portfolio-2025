@@ -1,11 +1,11 @@
 import React from "react";
 import * as styles from "./portfolio-showcase.module.css";
-import PortfolioShowcaseSlider from "./portfolio-showcase-slider";
+import PortfolioShowcaseSlider from "./ps-slider";
 
 const PortfolioShowcase = ({ entries }) => {
 
     return (
-        <div className={styles.wrap}>
+        <div className={`${styles.wrap} container`}>
             <PortfolioShowcaseSlider entries={entries}/>
         </div>
     );

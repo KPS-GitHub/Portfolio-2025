@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import Slider from '@ant-design/react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import PortfolioShowcaseSlide from './portfolio-showcase-slide';
-import PortfolioShowcaseTag from './portfolio-showcase-tag';
-import PortfolioShowcaseDetails from './portfolio-showcase-details';
+import PortfolioShowcaseSlide from './ps-slide';
+import PortfolioShowcaseTag from './ps-tag';
+import PortfolioShowcaseDetails from './ps-details';
 import { GatsbyImage } from 'gatsby-plugin-image';
-import * as styles from './portfolio-showcase-slider.module.css';
+import * as styles from './ps-slider.module.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const PortfolioShowcaseSlider = ({ entries }) => {
@@ -46,16 +46,25 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     currTechTags = currSlide.techTags;
   }
 
+  // accessibility for keyboard user to show details since the click event is on a regular div and not an interactive element like a button
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      setShowDetails(!showDetails);
+    }
+  };
+
   // react-slick Slider settings
   const settings = {
     dots: false,
+    arrows: false,
     className: "center",
     centerMode: true,
     slidesToShow: 3,
     infinite: true,
-    centerPadding: "0px",
+    centerPadding: "40px",
     speed: 1000,
     focusOnSelect: true,
+    draggable: true,
     vertical: true,
     beforeChange: (current, next) => {
       if (current === next) return;
@@ -69,25 +78,47 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       {
         breakpoint: 768,
         settings: {
-          dots: true,
-          buttons: true,
+          buttons: false,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          centerPadding: "0px",
+          vertical: false,
+          focusOnSelect: true
+        }
+      },
+      {
+        breakpoint: 555,
+        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           centerPadding: "0px",
           vertical: false,
-          focusOnSelect: false
+          focusOnSelect: false,
+          centerMode: true
         }
       }
     ]
   };
 
   return (
-    <div className="container">
+    <div className={`container ${styles.sliderWrap} ${showDetails ? styles.sliderWrapDetailsShow : ''}`}>
+      <div className='row hide-on-desktop'>
+        <div className='col-md-12'>
+          <h2 className={`${styles.sectionTitle} block-accent-pink`}>Portfolio</h2>
+        </div>
+      </div>
       <div className="row">
-        <div className={`col-md-6 ${styles.imageCol}`}>
-          <div className={styles.previewImageWrap}>
-            <GatsbyImage className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
-            <div className={styles.sliderButtonsWrap}>
+        <div className={`col-md-6 order-md-1 order-2 ${styles.imageCol}`}>
+          <div 
+            className={styles.previewImageWrap} 
+            onClick={() => setShowDetails(!showDetails)} 
+            onKeyDown={handleKeyDown}
+            tabIndex={0}
+            role="button"
+            aria-label='show details'
+          >
+            <GatsbyImage objectFit='contain' className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
+            <div className={`${styles.sliderButtonsWrap} hide-on-mobile`}>
               <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
               <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
             </div>
@@ -98,13 +129,15 @@ const PortfolioShowcaseSlider = ({ entries }) => {
             })}
           </div>
         </div>
-        <div className="col-md-1"></div>
-        <div className="col-md-4 block-accent-blue">
-          <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
-            {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
-          </Slider>
-          <div className={detailsFadeClass}>
-            <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} setShowDetails={setShowDetails} />
+        <div className="col-md-1 order-md-2 order-3"></div>
+        <div className={`col-md-5 order-md-3 order-1 block-accent-blue hide-accent-mobile ${styles.sliderRightWrap}`}>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
+            <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
+              {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
+            </Slider>
+            <button className={`${styles.sliderButton} ${styles.sliderButtonNext} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
+          <div className={`${detailsFadeClass} ${showDetails ? styles.detailsColShow : styles.detailsColHide}`}>
+            <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} showDetails={showDetails} setShowDetails={setShowDetails} />
           </div>
         </div>
       </div>

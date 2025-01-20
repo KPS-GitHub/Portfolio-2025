@@ -1,7 +1,29 @@
+:root {
+  --showcase-height: 60vh;
+}
+
 .wrap {
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: calc(var(--showcase-height) + 8rem);
+  /* height: 100%; */
   overflow: hidden;
+  padding-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+  .wrap {
+    align-items: flex-start;
+    height: calc(var(--showcase-height) + 15rem);
+    padding-top: 1rem;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    height: calc(var(--showcase-height) + 20rem);
+    padding-top: 4rem;
+  }
 }
