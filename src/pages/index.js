@@ -52,8 +52,6 @@ export const pageQuery = graphql`
         title
         slug
         publishDate(formatString: "MMMM Do, YYYY")
-        endTag
-        typeTags
         techTags
         featuredImage {
           gatsbyImage(
@@ -68,25 +66,6 @@ export const pageQuery = graphql`
           raw
         }
         body {
-          raw
-        }
-      }
-    }
-    allContentfulBlogPost(sort: { publishDate: DESC }) {
-      nodes {
-        title
-        slug
-        publishDate(formatString: "MMMM Do, YYYY")
-        tags
-        heroImage {
-          gatsbyImage(
-            layout: FULL_WIDTH
-            placeholder: BLURRED
-            width: 424
-            height: 212
-          )
-        }
-        description {
           raw
         }
       }

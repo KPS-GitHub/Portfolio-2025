@@ -116,8 +116,6 @@ export const pageQuery = graphql`
       body {
         raw
       }
-      endTag
-      typeTags
       techTags
     }
     previous: contentfulPortfolioEntry(slug: { eq: $previousPostSlug }) {
