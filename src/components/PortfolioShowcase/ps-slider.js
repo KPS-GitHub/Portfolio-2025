@@ -57,15 +57,16 @@ const PortfolioShowcaseSlider = ({ entries }) => {
   const settings = {
     dots: false,
     arrows: false,
-    className: "center",
     centerMode: true,
     slidesToShow: 3,
     infinite: true,
     centerPadding: "40px",
-    speed: 1000,
     focusOnSelect: true,
     draggable: true,
     vertical: true,
+    speed: 1000,
+    edgeFriction: 0.35,
+    swipeToSlide: true,
     beforeChange: (current, next) => {
       if (current === next) return;
       setImageColFadeClass(styles.fadeOut);

@@ -45,6 +45,19 @@
     background: var(--theme-accent);
     border-radius: 6px;
 }
+
+.body a {
+    border-bottom: var(--theme-accent) 2px dotted;
+    transition: --var(--transition-all-03);
+}
+.body h2 {
+    font-size: 1.3rem;
+}
+.body h3 {
+    font-size: 1.2rem;
+}
+
+
 /* WebKit browsers (Chrome, Safari) */
 /* .body::-webkit-scrollbar {
     width: 12px;
