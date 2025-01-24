@@ -12,7 +12,7 @@
     white-space: nowrap;
     padding: var(--space-md) var(--space-md);
     text-align: center;
-    /* margin-right: 1rem; */
+    margin-left: 1rem;
     margin-bottom: 1rem;
 
 }
