@@ -8,6 +8,8 @@
 .details-wrap-show {
     height: var(--showcase-height);
     z-index: 1;
+    padding-top: 1rem;
+    transition: var(--transition-all-03);
 }
 
 .details-title {
