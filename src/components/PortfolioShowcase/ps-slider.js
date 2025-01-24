@@ -117,7 +117,12 @@ const PortfolioShowcaseSlider = ({ entries }) => {
             role="button"
             aria-label='show details'
           >
-            <GatsbyImage objectFit='contain' className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} image={currImg.gatsbyImage} alt={currImg.title} />
+            <GatsbyImage 
+              className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} 
+              image={currImg.gatsbyImage} 
+              alt={currImg.title} 
+              objectFit="contain"
+            />
             <div className={`${styles.sliderButtonsWrap} hide-on-mobile`}>
               <button className={`${styles.sliderButton} ${styles.sliderButtonPrev}`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
               <button className={`${styles.sliderButton} ${styles.sliderButtonNext}`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
