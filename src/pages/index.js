@@ -47,7 +47,10 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query HomeQuery {
-    allContentfulPortfolioEntry(sort: { publishDate: DESC }) {
+    allContentfulPortfolioEntry(
+      sort: { publishDate: DESC }
+      filter: { title: { regex: "/^(?!.*schema).*$/i" } }
+      ) {
       nodes {
         title
         slug
