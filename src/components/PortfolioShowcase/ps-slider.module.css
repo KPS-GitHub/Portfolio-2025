@@ -42,14 +42,14 @@
 .preview-image-wrap {
   position: relative;
   display: block;
-  /* height: 55%; */
+  height: 55vh;
   /* background: var(--black-fade-3); */
   border-radius: var(--radius-lg);
   cursor: pointer;
 }
 
 .gatsby-image, .gatsby-image img {
-  height: 40vh;
+  height: 100%;
   width: 100%;
   border-radius: var(--radius-lg);
   transition: var(--transition-all-05);
