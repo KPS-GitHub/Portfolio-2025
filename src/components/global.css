@@ -123,6 +123,13 @@ img {
   overflow: visible;
 }
 
+a.dotted-anchor {
+  border-bottom: 2px dotted var(--theme-accent);
+}
+a:hover {
+  color: var(--theme-accent);
+}
+
 .block-accent-green, .block-accent-pink, .block-accent-blue {
   position: relative;
   right: .5rem; /* shift the element to the left by half the width as the block accent to maintain horizontal page balance */

@@ -46,13 +46,6 @@ const PortfolioShowcaseSlider = ({ entries }) => {
     currTechTags = currSlide.techTags;
   }
 
-  // accessibility for keyboard user to show details since the click event is on a regular div and not an interactive element like a button
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      setShowDetails(!showDetails);
-    }
-  };
-
   // react-slick Slider settings
   const settings = {
     dots: false,
@@ -112,11 +105,6 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         <div className={`col-md-6 order-md-1 order-2 ${styles.imageCol}`}>
           <div 
             className={styles.previewImageWrap} 
-            onClick={() => setShowDetails(!showDetails)} 
-            onKeyDown={handleKeyDown}
-            tabIndex={0}
-            role="button"
-            aria-label='show details'
           >
             <GatsbyImage 
               className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} 

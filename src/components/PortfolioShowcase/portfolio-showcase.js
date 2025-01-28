@@ -5,7 +5,7 @@ import PortfolioShowcaseSlider from "./ps-slider";
 const PortfolioShowcase = ({ entries }) => {
 
     return (
-        <div className={`${styles.wrap} container`}>
+        <div className={`${styles.wrap} container`} id="portfolio">
             <PortfolioShowcaseSlider entries={entries}/>
         </div>
     );

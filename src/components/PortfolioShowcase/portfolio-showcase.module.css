@@ -9,6 +9,7 @@
   /* height: calc(var(--showcase-height) + 8rem); */
   /* height: 100%; */
   overflow: hidden;
+  padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
