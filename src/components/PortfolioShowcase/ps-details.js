@@ -1,7 +1,22 @@
 import React, { useRef, useState, useEffect } from "react";
 import * as styles from "./ps-details.module.css";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
+import { INLINES } from '@contentful/rich-text-types';
 import { get } from "lodash";
+
+const options = {
+    renderNode: {
+      [INLINES.HYPERLINK]: (node, children) => {
+        const { uri } = node.data;
+        const isExternal = !uri.startsWith('#');
+        return (
+          <a href={uri} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined} className="dotted-anchor">
+            {children}
+          </a>
+        );
+      },
+    },
+  };
 
 const PortfolioShowcaseDetails = ({ entry, index, showDetails, setShowDetails }) => {
   const title = get(entry, 'title', null);
@@ -53,7 +68,7 @@ const PortfolioShowcaseDetails = ({ entry, index, showDetails, setShowDetails })
       <button onClick={() => setShowDetails(false)} className={`button-clean ${styles.closeButton}`}>{`<-- Close Details`}</button>
       <h2 style={{ fontSize }} ref={detailsTitleRef} className={styles.detailsTitle}>{title}</h2>
       <div ref={bodyRef} className={styles.body}>
-        {renderRichText(body)}
+        {renderRichText(body, options)}
       </div>
     </div>
   );

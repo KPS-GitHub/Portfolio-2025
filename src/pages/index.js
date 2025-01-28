@@ -54,6 +54,7 @@ export const pageQuery = graphql`
       nodes {
         title
         slug
+        websiteUrl
         publishDate(formatString: "MMMM Do, YYYY")
         techTags
         featuredImage {

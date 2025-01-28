@@ -46,7 +46,11 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
     <div className={`${styles.slideOuterWrap} ${currSlideIndex === thisSlideIndex ? styles.currentSlide : ''}`}>
       <div className={styles.slideWrap}>
         <h2 style={{ fontSize }}>{title}</h2>
-        <button onClick={() => setShowDetails(true)} className={`button-clean ${styles.viewDetailsButton}`}>View Details</button>
+        <div className={styles.buttonsWrap}>
+          <a href={entry.websiteUrl} target="_blank" rel="noreferrer" className={`button-clean ${styles.visitSiteButton}`}>Visit Site</a>
+          &nbsp; &nbsp;
+          <button onClick={() => setShowDetails(true)} className={`button-clean ${styles.viewDetailsButton}`}>View Details</button>
+        </div>
       </div>
     </div>
   );

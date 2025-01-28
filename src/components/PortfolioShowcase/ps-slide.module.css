@@ -26,6 +26,7 @@
     transition: all 0.3s ease;
 }
 
+
 .title {
     display: inline-block;
     font-size: var(--text-lg);
@@ -35,8 +36,7 @@
 }
 
 .view-details-button {
-    display: none;
-    transition: all 0.3s ease-in-out;
+    display: block;
     white-space: nowrap;
 }
 
@@ -44,17 +44,20 @@
     transition: all 0.3s ease-in-out;
 }
 
-.current-slide .view-details-button {
-    display: block;
-    position: absolute;
-    bottom: -1rem;
-    background: var(--black-fade-05);
+.buttons-wrap {
+    display: flex;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.current-slide .buttons-wrap {
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 }
 .current-slide:hover .view-details-button {
 
 }
 
-.view-details-button:hover {
+.view-details-button:hover, .visit-site-button:hover {
     border-bottom: 3px solid var(--theme-accent);
 }
 /* .view-details-button.green-border:hover {
