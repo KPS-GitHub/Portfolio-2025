@@ -95,7 +95,7 @@ export const pageQuery = graphql`
         raw
       }
       email
-      phone
+      linkedIn
       github
       image {
         gatsbyImage(layout: CONSTRAINED, placeholder: BLURRED, width: 1180)

@@ -6,7 +6,7 @@ import * as styles from './navigation.module.css'
 import {
   FaEnvelope,
   FaGithub,
-  FaPhone
+  FaLinkedin
 } from 'react-icons/fa';
 import { get } from 'lodash';
 import FadeIn from './fadeIn';
@@ -14,7 +14,7 @@ import FadeIn from './fadeIn';
 const Navigation = ({ me }) => {
   // console.log("me: ", me);
   const email = get(me, 'email', null);
-  const phone = get(me, 'phone', null);
+  const linkedIn = get(me, 'linkedIn', null);
   const github = get(me, 'github', null);
 
   // compact nav on scroll
@@ -101,15 +101,15 @@ const Navigation = ({ me }) => {
               </Link>
               {/* links */}
               <div className={`${styles.linksWrap} block-accent-green block-accent-target-class`}>
-                {github && <Link to={`${github}`} target='_blank' rel="noreferrer" className={`${styles.navIconLink} ${styles.navigationItem}`}>
-                  <FaGithub className={`${styles.linkIcon}`} />
-                </Link>}
+                {linkedIn && <a href={`${linkedIn}`} target='_blank' rel="noreferrer" className={`${styles.navIconLink} ${styles.navigationItem}`}>
+                  <FaLinkedin className={`${styles.linkIcon}`} />
+                </a>}
                 {email && <a href={`mailto:${email}`} target='_blank' rel="noreferrer" className={`${styles.navIconLink} ${styles.navigationItem}`}>
                   <FaEnvelope className={`${styles.linkIcon}`} />
                 </a>}
-                {phone && <a href={`tel:${phone}`} target='_blank' rel="noreferrer" className={`${styles.navIconLink} ${styles.navigationItem}`}>
-                  <FaPhone className={`${styles.linkIcon}`} />
-                </a>}
+                {github && <Link to={`${github}`} target='_blank' rel="noreferrer" className={`${styles.navIconLink} ${styles.navigationItem}`}>
+                  <FaGithub className={`${styles.linkIcon}`} />
+                </Link>}
               </div>
             </nav>
           </FadeIn>
