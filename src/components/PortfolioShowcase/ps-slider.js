@@ -3,11 +3,11 @@ import Slider from '@ant-design/react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import PortfolioShowcaseSlide from './ps-slide';
-import PortfolioShowcaseTag from './ps-tag';
 import PortfolioShowcaseDetails from './ps-details';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import * as styles from './ps-slider.module.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import PortfolioShowcaseTags from './ps-tags';
 
 const PortfolioShowcaseSlider = ({ entries }) => {
   // ref to enable prev/next buttons on mobile slider
@@ -103,13 +103,13 @@ const PortfolioShowcaseSlider = ({ entries }) => {
       </div>
       <div className="row">
         <div className={`col-md-6 order-md-1 order-2 ${styles.imageCol}`}>
-          <div 
-            className={styles.previewImageWrap} 
+          <div
+            className={styles.previewImageWrap}
           >
-            <GatsbyImage 
-              className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`} 
-              image={currImg.gatsbyImage} 
-              alt={currImg.title} 
+            <GatsbyImage
+              className={`${styles.gatsbyImage} ${imageColFadeClass} ${currentEntryIndex % 2 === 0 ? 'block-accent-green' : 'block-accent-pink'}`}
+              image={currImg.gatsbyImage}
+              alt={currImg.title}
               objectFit="contain"
             />
             <div className={`${styles.sliderButtonsWrap} hide-on-mobile`}>
@@ -118,23 +118,31 @@ const PortfolioShowcaseSlider = ({ entries }) => {
             </div>
           </div>
           <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
-            {currTechTags?.map((tag, index) => {
+            {/* {currTechTags?.map((tag, index) => {
               return <PortfolioShowcaseTag key={index} tag={tag} index={index} />
-            })}
+            })} */}
+            {currTechTags ? <PortfolioShowcaseTags tags={currTechTags} /> : null}
           </div>
         </div>
         <div className="col-md-1 order-md-2 order-3"></div>
         <div className={`col-md-5 order-md-3 order-1 block-accent-blue hide-accent-mobile ${styles.sliderRightWrap}`}>
-            <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
-            <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
-              {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
-            </Slider>
-            <button className={`${styles.sliderButton} ${styles.sliderButtonNext} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
+          <button className={`${styles.sliderButton} ${styles.sliderButtonPrev} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickPrev()} aria-label='previous portfolio entry'><FaChevronLeft /></button>
+          <Slider ref={slider} {...settings} className={`${sliderFadeClass}`}>
+            {entries.map((entry, index) => <PortfolioShowcaseSlide key={entry.slug} entry={entry} thisSlideIndex={index} currSlideIndex={currentEntryIndex} setShowDetails={setShowDetails} />)}
+          </Slider>
+          <button className={`${styles.sliderButton} ${styles.sliderButtonNext} ${showDetails ? 'hide' : ''} hide-on-desktop`} onClick={() => slider?.current?.slickNext()} aria-label='next portfolio entry'><FaChevronRight /></button>
           <div className={`${detailsFadeClass} ${showDetails ? styles.detailsColShow : styles.detailsColHide}`}>
             <PortfolioShowcaseDetails entry={currSlide} index={currentEntryIndex} showDetails={showDetails} setShowDetails={setShowDetails} />
           </div>
         </div>
       </div>
+      {/* <div className='row'>
+        <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
+          {currTechTags?.map((tag, index) => {
+            return <PortfolioShowcaseTag key={index} tag={tag} index={index} />
+          })}
+        </div>
+      </div> */}
     </div>
   );
 };

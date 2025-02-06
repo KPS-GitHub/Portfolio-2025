@@ -42,7 +42,7 @@
 .preview-image-wrap {
   position: relative;
   display: block;
-  height: 55vh;
+  height: 42vh;
   /* background: var(--black-fade-3); */
   border-radius: var(--radius-lg);
 }
