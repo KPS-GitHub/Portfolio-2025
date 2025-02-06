@@ -264,22 +264,27 @@ code {
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
-  padding: 1px 5px;
+  padding: 2px 7px;
   border-bottom: 3px solid transparent;
+  border-right: 3px solid transparent;
   transition: var(--transition-all-03);
 }
 
-.button-clean:hover {
+.button-clean:hover, .button-clean.primary-shadow:hover, .button-clean.secondary-shadow:hover, .button-clean.accent-shadow:hover {
   border-bottom: 3px solid var(--black-fade-5);
+  border-right: 3px solid var(--black-fade-5);
   transition: var(--transition-all-03);
 }
 
 .button-clean.primary-shadow:hover {
   border-bottom: 3px solid var(--theme-primary);
+  border-right: 3px solid var(--theme-primary);
 }
 .button-clean.secondary-shadow:hover {
   border-bottom: 3px solid var(--theme-secondary);
+  border-right: 3px solid var(--theme-secondary);
 }
 .button-clean.accent-shadow:hover {
   border-bottom: 3px solid var(--theme-accent);
+  border-right: 3px solid var(--theme-accent);
 }

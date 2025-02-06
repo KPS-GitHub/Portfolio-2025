@@ -24,7 +24,7 @@ const PortfolioShowcaseTags = ({ tags }) => {
                 <button
                     onClick={() => setShowAllTags(!showAllTags)}
                     className={`button-clean accent-shadow`}
-                    style={{margin: 'auto'}}
+                    style={{display: 'block', margin: '1rem auto 1rem'}}
                 >
                     {showAllTags ? 'Show Less Tags' : `Show All Tags`}
                 </button>
