@@ -259,7 +259,7 @@ code {
 
 
 /* custom classes */
-.button-clean {
+.button-clean, .button-clean.primary-shadow, .button-clean.secondary-shadow, .button-clean.accent-shadow {
   background: var(--black-fade-05);
   border: none;
   border-radius: var(--radius-sm);
@@ -272,4 +272,14 @@ code {
 .button-clean:hover {
   border-bottom: 3px solid var(--black-fade-5);
   transition: var(--transition-all-03);
+}
+
+.button-clean.primary-shadow:hover {
+  border-bottom: 3px solid var(--theme-primary);
+}
+.button-clean.secondary-shadow:hover {
+  border-bottom: 3px solid var(--theme-secondary);
+}
+.button-clean.accent-shadow:hover {
+  border-bottom: 3px solid var(--theme-accent);
 }
