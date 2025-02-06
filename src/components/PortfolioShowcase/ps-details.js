@@ -65,7 +65,7 @@ const PortfolioShowcaseDetails = ({ entry, index, showDetails, setShowDetails })
 
   return (
     <div ref={detailsWrapRef} className={`${styles.detailsWrap} ${showDetails ? styles.detailsWrapShow : ''}`}>
-      <button onClick={() => setShowDetails(false)} className={`button-clean ${styles.closeButton}`}>{`<-- Close Details`}</button>
+      <button onClick={() => setShowDetails(false)} className={`button-clean accent-shadow ${styles.closeButton}`}>{`<-- Close Details`}</button>
       <h2 style={{ fontSize }} ref={detailsTitleRef} className={styles.detailsTitle}>{title}</h2>
       <div ref={bodyRef} className={styles.body}>
         {renderRichText(body, options)}
