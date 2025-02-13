@@ -1,10 +1,13 @@
 import React from "react";
 import * as styles from "./section-title.module.css";
 
-const SectionTitle = ({ children, targetId }) => {
+const SectionTitle = ({ title, subtitle, targetId }) => {
     const id = targetId ? `${targetId}` : '';
   return (
-    <h2 id={id} className={`${styles.sectionTitle} text-2xl font-bold mb-4`} style={{marginLeft: '1rem'}}>{children}</h2>
+    <div className={`${styles.sectionTitle}`}>
+      <h2 id={id} className={`text-2xl font-bold`}>{title}</h2>
+      <p>{subtitle}</p>
+    </div>
   );
 };
 

@@ -96,11 +96,11 @@ const PortfolioShowcaseSlider = ({ entries }) => {
 
   return (
     <div className={`container ${styles.sliderWrap} ${showDetails ? styles.sliderWrapDetailsShow : ''}`}>
-      <div className='row hide-on-desktop'>
+      {/* <div className='row hide-on-desktop'>
         <div className='col-md-12'>
           <h2 className={`${styles.sectionTitle} block-accent-pink`}>Portfolio</h2>
         </div>
-      </div>
+      </div> */}
       <div className="row">
         <div className={`col-md-6 order-md-1 order-2 ${styles.imageCol}`}>
           <div
@@ -118,9 +118,6 @@ const PortfolioShowcaseSlider = ({ entries }) => {
             </div>
           </div>
           <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
-            {/* {currTechTags?.map((tag, index) => {
-              return <PortfolioShowcaseTag key={index} tag={tag} index={index} />
-            })} */}
             {currTechTags ? <PortfolioShowcaseTags tags={currTechTags} /> : null}
           </div>
         </div>
@@ -136,13 +133,6 @@ const PortfolioShowcaseSlider = ({ entries }) => {
           </div>
         </div>
       </div>
-      {/* <div className='row'>
-        <div className={`${styles.tagsWrap} ${imageColFadeClass}`}>
-          {currTechTags?.map((tag, index) => {
-            return <PortfolioShowcaseTag key={index} tag={tag} index={index} />
-          })}
-        </div>
-      </div> */}
     </div>
   );
 };

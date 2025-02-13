@@ -6,12 +6,12 @@ import SectionTitle from "../section-title";
 const PortfolioShowcase = ({ entries }) => {
 
     return (
-        <>
-            <SectionTitle targetId={'portfolio'} >Portfolio Showcase</SectionTitle>
+        <div className={styles.outerWrap}>
+            <SectionTitle title="Professional Portfolio*" subtitle="*in-progress content loading, many more projects from my career-so-far coming soon" targetId={'portfolio'} />
             <div className={`${styles.wrap} container`}>
                 <PortfolioShowcaseSlider entries={entries}/>
             </div>
-        </>
+        </div>
     );
 }
 
