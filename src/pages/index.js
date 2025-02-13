@@ -10,6 +10,7 @@ import Layout from '../components/layout'
 import PortfolioShowcase from '../components/PortfolioShowcase/portfolio-showcase'
 import AboutMeSec from '../components/about-me';
 import FadeIn from '../components/fadeIn';
+import TagFrequencyChart from '../components/PortfolioShowcase/PortfolioDataVis/ps-tag-freq-chart';
 
 class RootIndex extends React.Component {
   render() {
@@ -34,6 +35,12 @@ class RootIndex extends React.Component {
           <br />
           <FadeIn delay={750}>
             <PortfolioShowcase entries={portEntries} />
+          </FadeIn>
+          <br />
+          <br />
+          <br />
+          <FadeIn delay={750}>
+            <TagFrequencyChart entries={portEntries} />
           </FadeIn>
           {/* <ArticlePreview posts={posts} /> */}
         </div>

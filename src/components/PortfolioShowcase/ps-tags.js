@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PortfolioShowcaseTag from "./ps-tag";
+import * as styles from "./ps-tags.module.css";
 
 const PortfolioShowcaseTags = ({ tags }) => {
     const [showAllTags, setShowAllTags] = useState(false);
@@ -13,7 +14,7 @@ const PortfolioShowcaseTags = ({ tags }) => {
     const hasMoreTags = tags.length > initialTagCount;
 
     return (
-        <div className="space-y-2">
+        <div className={`${styles.tagsWrap} ${showAllTags && styles.shadowed} space-y-2`}>
             <div className="flex flex-wrap gap-2">
                 {visibleTags.map((tag, i) => (
                     <PortfolioShowcaseTag key={i} index={i-1} tag={tag} />

@@ -36,7 +36,7 @@ const PortfolioShowcaseSlide = ({ entry, thisSlideIndex, currSlideIndex, setShow
 
     if (windowWidth <= 355 || windowHeight <= 300) return `${baseFontSize - 1}rem`;
     if (windowWidth <= 768 || windowHeight <= 400) return `${baseFontSize - .75}rem`;
-    if (windowWidth <= 991 || windowHeight <= 700) return `${baseFontSize - .5}rem`;
+    if (windowWidth <= 991 || windowHeight <= 700) return `${baseFontSize - .6}rem`;
     return `${baseFontSize}rem`;
   };
 
