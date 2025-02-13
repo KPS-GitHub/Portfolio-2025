@@ -68,7 +68,7 @@ const TagFrequencyChart = ({ entries }) => {
 
   return (
     <div className="w-full">
-      <SectionTitle targetId={'tag-freq-chart'}>Portfolio Tech Distribution</SectionTitle>
+      <SectionTitle title="Portfolio Tech Distribution*" subtitle="*in-progress content loading, many more projects from my career-so-far coming soon" targetId={'tag-freq-chart'} />
       {/* <h2 className="text-2xl font-bold mb-4">Technology Tag Distribution</h2> */}
       <div className="h-96" 
         style={{ 
@@ -113,7 +113,7 @@ const TagFrequencyChart = ({ entries }) => {
             />
             <Bar
               dataKey="count"
-              radius={[4, 4, 0, 0]}
+              radius={screenWidth <= 991 ? [0, 7, 7, 0] : [7, 7, 0, 0]}
               fill={undefined}
               opacity={undefined}
               xAxisId={screenWidth <= 991 ? 'top' : undefined} // ensures the x-axis labels are at the top on mobile because you have to scroll a bit before you see the bottom of the chart
