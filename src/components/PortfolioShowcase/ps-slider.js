@@ -73,7 +73,7 @@ const PortfolioShowcaseSlider = ({ entries }) => {
         breakpoint: 768,
         settings: {
           buttons: false,
-          slidesToShow: 3,
+          slidesToShow: 1,
           slidesToScroll: 1,
           centerPadding: "0px",
           vertical: false,
