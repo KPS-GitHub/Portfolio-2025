@@ -31,9 +31,14 @@
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@types/react-helmet": "^6.1.11",
     "contentful-import": "^8.3.2",
     "gatsby-provision-contentful": "^0.0.5",
-    "netlify-cli": "^10.0.0"
+    "netlify-cli": "^10.0.0",
+    "typescript": "^5.7.3"
   },
   "engines": {
     "node": ">=18.0.0"
@@ -45,7 +50,6 @@
     "starter"
   ],
   "license": "MIT",
-  "main": "n/a",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
