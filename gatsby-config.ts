@@ -1,8 +1,11 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
+import type { GatsbyConfig } from "gatsby"
+import dotenv from "dotenv"
 
-module.exports = {
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
+const config: GatsbyConfig = {
   siteMetadata: {
     title: "Kennan Smith Web Development and Digital Marketing",
     description: "Kennan Smith's professional web development and digitial marketing portfolio site",
@@ -21,4 +24,6 @@ module.exports = {
       },
     },
   ],
-};
+}
+
+export default config
