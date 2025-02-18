@@ -106,7 +106,7 @@ const TagFrequencyChart = ({ entries }) => {
                 return (
                   <div className="bg-white border border-gray-200 p-2 shadow-lg rounded">
                     <p className="font-medium">{payload[0].payload.tag}</p>
-                    <p>Used in {payload[0].value} projects</p>
+                    <p>Used in {payload[0].value} project{payload[0].value > 1 && 's'}</p>
                   </div>
                 );
               }}
