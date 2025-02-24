@@ -25,12 +25,12 @@ module.exports = {
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
-          "GTM-N4FT3BD2", // Google Analytics / GA
+          "GTM-N4FT3BD2", // Google Tag Manager / GTM
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
-          optimize_id: "GTM-N4FT3BD2",
+          // optimize_id: "GTM-N4FT3BD2",
           anonymize_ip: true,
           cookie_expires: 0,
         },
@@ -43,7 +43,7 @@ module.exports = {
           // Avoids sending pageview hits from custom paths
           exclude: ["/preview/**", "/do-not-track/me/too/"],
           // Defaults to https://www.googletagmanager.com
-          origin: "YOUR_SELF_HOSTED_ORIGIN",
+          origin: "https://kennansmith.netlify.app/",
           // Delays processing pageview events on route update (in milliseconds)
           delayOnRouteUpdate: 0,
         },

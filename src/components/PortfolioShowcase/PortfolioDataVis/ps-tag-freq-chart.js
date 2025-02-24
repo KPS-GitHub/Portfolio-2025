@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import SectionTitle from '../../section-title';
 
 const TagFrequencyChart = ({ entries }) => {
-  console.log('TagFrequencyChart received entries:', entries); // Debug log
+  // console.log('TagFrequencyChart received entries:', entries); // Debug log
 
   const [screenWidth, setScreenWidth] = useState(800);
 
