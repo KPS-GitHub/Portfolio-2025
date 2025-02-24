@@ -20,5 +20,14 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST
       },
     },
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "GTM-N4FT3BD2", // Google Tag Manager / GTM
+        ]
+      },
+    },
   ],
 };
