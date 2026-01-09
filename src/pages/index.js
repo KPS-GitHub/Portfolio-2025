@@ -43,7 +43,6 @@ class RootIndex extends React.Component {
             <TagFrequencyChart entries={portEntries} />
           </FadeIn>
           {/* <ArticlePreview posts={posts} /> */}
-          <div>Test Div - can you see me?</div>
         </div>
 
       </Layout>
